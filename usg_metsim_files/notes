@@ -39,6 +39,12 @@ matches very well throughout, probably the best one
 
 
 
+light curves: below ~-17 magnitude or so is the noise threshold
+global ablation should be 0.005 (5e-3), grain density 3500 bulk density 1500, none of these should be changed
+ 
+
+
+
 
 
 
@@ -50,7 +56,7 @@ september 03 2004 event: doesn't have velocity, entry angle or azimuth data eith
 currently incomplete
 
 June 02/06 2002 event: provided bolide light curve say June 06, CNEOS website and JPL spreadsheet say June 02 (??)
-also doesn't have altitude, velocity, entry angle or azimuth data either in the jpl file or on cneos website
+also doesn'ty have altitude, velocity, entry angle or azimuth data either in the jpl file or on cneos website
 
 April 23 2001 event: also doesn't have velocity, entry angle or azimuth data either in either source
 
