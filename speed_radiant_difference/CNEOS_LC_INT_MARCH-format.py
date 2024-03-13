@@ -5,10 +5,9 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-FILE_NAME = "D:\\oldE\\fireballs\\Satellite Data\\bolide-lcs\\USG-CNEOS\\bolideTxtFiles_20220324\\bolide.2014.008.170534.txt"
-OUTPUT_INT = "D:\\oldE\\fireballs\\Satellite Data\\bolide-lcs\\USG-CNEOS\\bolideTxtFiles_20220324\\INT.csv"
-OUTPUT_MAG = "D:\\oldE\\fireballs\\Satellite Data\\bolide-lcs\\USG-CNEOS\\bolideTxtFiles_20220324\\MAG.csv"
-
+FILE_NAME = "events/Almahatta_Sitta/bolide.2008.284.093418_AS.txt"
+OUTPUT_INT = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_INT.csv"
+OUTPUT_MAG = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_MAG.csv"
 
 ##############################################################
 
@@ -49,7 +48,7 @@ def format_exponent(ax, axis='y'):
     if len(offset) > 0:
         # Get that exponent value and change it into latex format
         minus_sign = u'\u2212'
-        expo = np.float(offset.replace(minus_sign, '-').split('e')[-1])
+        expo = np.float64(offset.replace(minus_sign, '-').split('e')[-1])
         offset_text = r'x$\mathregular{10^{%d}}$' %expo
 
         # Turn off the offset text that's calculated automatically
@@ -150,8 +149,8 @@ def lcPlotter(time_window):
     ax1 = plt.subplot(211)
     ax1.plot(t_list, I_list, color='red', linewidth=2.0)
     ax1.set_ylabel("Intensity [W/ster]")
-    ax1.grid(b=True, which='major', color='red', linestyle='-')
-    ax1.grid(b=True, which='minor', color='black', linestyle='-', alpha=0.2)
+    ax1.grid(visible=True, which='major', color='red', linestyle='-')
+    ax1.grid(visible=True, which='minor', color='black', linestyle='-', alpha=0.2)
     #ax1.grid('on')
 
     ax1.spines['right'].set_color((.8,.8,.8))
@@ -162,8 +161,8 @@ def lcPlotter(time_window):
     ax2.plot(t_list, M_bol, linewidth=7.0)
     ax2.set_xlabel("Time [seconds after {:}]".format(utc_time))
     ax2.set_ylabel("Bolometric Magnitude")
-    ax2.grid(b=True, which='major', color='red', linestyle='-')
-    ax2.grid(b=True, which='minor', color='black', linestyle='-', alpha=0.2)
+    ax2.grid(visible=True, which='major', color='red', linestyle='-')
+    ax2.grid(visible=True, which='minor', color='black', linestyle='-', alpha=0.2)
     #ax2.grid('on')
 
     ax2.spines['right'].set_color((.8,.8,.8))

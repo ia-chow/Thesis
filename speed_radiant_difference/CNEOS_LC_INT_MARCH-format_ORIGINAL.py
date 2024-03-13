@@ -5,12 +5,20 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-FILE_NAME = "events/Almahatta_Sitta/bolide.2008.284.093418_AS.txt"
-OUTPUT_INT = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_INT.csv"
-OUTPUT_MAG = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_MAG.csv"
+FILE_NAME = "D:\\oldE\\fireballs\\Satellite Data\\bolide-lcs\\USG-CNEOS\\bolideTxtFiles_20220324\\bolide.2014.008.170534.txt"
+OUTPUT_INT = "D:\\oldE\\fireballs\\Satellite Data\\bolide-lcs\\USG-CNEOS\\bolideTxtFiles_20220324\\INT.csv"
+OUTPUT_MAG = "D:\\oldE\\fireballs\\Satellite Data\\bolide-lcs\\USG-CNEOS\\bolideTxtFiles_20220324\\MAG.csv"
+
 
 ##############################################################
 
+data_list = []
+
+t_list = []
+I_list = []
+
+latitude = None
+longitude = None
 
 def format_exponent(ax, axis='y'):
     # found here: https://stackoverflow.com/questions/31517156/adjust-exponent-text-after-setting-scientific-limits-on-matplotlib-axis
@@ -41,7 +49,7 @@ def format_exponent(ax, axis='y'):
     if len(offset) > 0:
         # Get that exponent value and change it into latex format
         minus_sign = u'\u2212'
-        expo = np.float64(offset.replace(minus_sign, '-').split('e')[-1])
+        expo = np.float(offset.replace(minus_sign, '-').split('e')[-1])
         offset_text = r'x$\mathregular{10^{%d}}$' %expo
 
         # Turn off the offset text that's calculated automatically
@@ -85,52 +93,38 @@ def lcPlotter(time_window):
 
     # EXTRACT DATA
     with open(FILE_NAME, "r+") as f:
-        lines = f.readlines()
-        for line in lines:
-    #        print (line)
-            if line[0] == ",":
-                line = line[1:-3]
-                line = line.split(",")
-                data_list.append(line)
+     lines = f.readlines()
+     for line in lines:
+        if line[0] == "(":
+            line = line[1:-3]
+            line = line.split(",")
+            data_list.append(line)
 
-            if "At" in line:
-                utc_time = line[3:14]
-                date_time = line[18:29]
-            
-            if "Lat" in line:
-                temp_line = line.split(" ")
-                for ww, word in enumerate(temp_line):
-                    if word == "Lat":
-                        latitude = temp_line[ww + 1].strip(',\n.')
+        if "At" in line:
+            utc_time = line[3:14]
+            date_time = line[18:29]
+        
+        if "Lat" in line:
+            temp_line = line.split(" ")
+            for ww, word in enumerate(temp_line):
+                if word == "Lat":
+                    latitude = temp_line[ww + 1].strip(',\n.')
 
-            if "Lon" in line:
-                temp_line = line.split(" ")
-                for ww, word in enumerate(temp_line):
-                    if word == "Lon":
-                        longitude = temp_line[ww + 1].strip(',\n.')
+        if "Lon" in line:
+            temp_line = line.split(" ")
+            for ww, word in enumerate(temp_line):
+                if word == "Lon":
+                    longitude = temp_line[ww + 1].strip(',\n.')
 
-            if "Peak Intensity" in line:
-                temp_line = line.split(" ")
-                peak_intensity = float(temp_line[3])
-                peak_magnitude = 6-2.5*np.log10(peak_intensity)
+        if "Peak Intensity" in line:
+            temp_line = line.split(" ")
+            peak_intensity = float(temp_line[3])
+            peak_magnitude = 6-2.5*np.log10(peak_intensity)
 
-            if "Total Energy" in line:
-                temp_line = line.split(" ")
-                total_energy = float(temp_line[5])
-                total_yield = 8.2508*(total_energy / 4.185e12) **0.885
-
-            if "approximately" in line:
-                temp_line = line.split(" ")
-                for ww, word in enumerate(temp_line):
-                    if word == "approximately":
-                        text_Int = temp_line[ww + 1].strip(',\n.')
-
-            if "energy" in line:
-                temp_line = line.split(" ")
-                for ww, word in enumerate(temp_line):
-                    if word == "energy":
-                        text_Energy = temp_line[ww + 2].strip(',\n.')
-
+        if "Total Energy" in line:
+            temp_line = line.split(" ")
+            total_energy = float(temp_line[5])
+            total_yield = 8.2508*(total_energy / 4.185e12) **0.885
 
     # MAKE POINTS
     for pair in data_list:
@@ -156,8 +150,8 @@ def lcPlotter(time_window):
     ax1 = plt.subplot(211)
     ax1.plot(t_list, I_list, color='red', linewidth=2.0)
     ax1.set_ylabel("Intensity [W/ster]")
-    ax1.grid(visible=True, which='major', color='red', linestyle='-')
-    ax1.grid(visible=True, which='minor', color='black', linestyle='-', alpha=0.2)
+    ax1.grid(b=True, which='major', color='red', linestyle='-')
+    ax1.grid(b=True, which='minor', color='black', linestyle='-', alpha=0.2)
     #ax1.grid('on')
 
     ax1.spines['right'].set_color((.8,.8,.8))
@@ -168,8 +162,8 @@ def lcPlotter(time_window):
     ax2.plot(t_list, M_bol, linewidth=7.0)
     ax2.set_xlabel("Time [seconds after {:}]".format(utc_time))
     ax2.set_ylabel("Bolometric Magnitude")
-    ax2.grid(visible=True, which='major', color='red', linestyle='-')
-    ax2.grid(visible=True, which='minor', color='black', linestyle='-', alpha=0.2)
+    ax2.grid(b=True, which='major', color='red', linestyle='-')
+    ax2.grid(b=True, which='minor', color='black', linestyle='-', alpha=0.2)
     #ax2.grid('on')
 
     ax2.spines['right'].set_color((.8,.8,.8))
@@ -240,19 +234,20 @@ def lcPlotter(time_window):
         ax1.fill_between(t_list[index_under_curve], I_list[index_under_curve], color="r", alpha=0.3)
 
 
-    if area_under_curve is None:
-        ax1.set_title("Fireball: {:} \n Location: {:},  {:} \n  Peak_text_intensity = {:} W/ster       Peak_text_Energy = {:} J \n Peak Intensity = {:} W/ster (Peak Magnitude = {:.1f}) \n Total Radiated Energy = {:} J      Yield = {:.2f} kT"\
-                    .format(date_time, latitude, longitude, text_Int, text_Energy,caretNotation(peak_intensity, 2), peak_magnitude, caretNotation(total_energy, 2), total_yield))
-    else:
-        ax1.set_title("Date: {:}          Location: {:}, {:} \n Peak_text_intensity = {:} W/ster          Text_Energy = {:} J \n  Peak Intensity = {:} W/ster      Total_Energy = {:} J \n Yield = {:.2f} kT                 Area_Energy = {:} J \n Peak Magnitude = {:.1f}"\
-                    .format(date_time, latitude, longitude, text_Int, text_Energy,caretNotation(peak_intensity, 2), caretNotation(total_energy, 2), total_yield, caretNotation(area_under_curve, 2), peak_magnitude))       
-
+ #    if area_under_curve is None:
+ #        ax1.set_title("Fireball: {:} \n Location: {:},  {:} \n  Peak_text_intensity = {:} W/ster       Peak_text_Energy = {:} J \n Peak Intensity = {:} W/ster (Peak Magnitude = {:.1f}) \n Total Radiated Energy = {:} J      Yield = {:.2f} kT"\
+ #                    .format(date_time, latitude, longitude, peak_intensity, total_energy,caretNotation(peak_intensity, 2), peak_magnitude, caretNotation(total_energy, 2), total_yield))
+ #    else:
+ # #       ax1.set_title("Date: {:}          Location: {:}, {:} \n Peak_text_intensity = {:} W/ster          Text_Energy = {:} J \n  Peak Intensity = {:} W/ster      Total_Energy = {:} J \n Yield = {:.2f} kT                 Area_Energy = {:} J \n Peak Magnitude = {:.1f}"\
+ # #                   .format(date_time, latitude, longitude, peak_intensity, total_energy,caretNotation(peak_intensity, 2), caretNotation(total_energy, 2), total_yield, caretNotation(area_under_curve, 2), peak_magnitude))       
+ #         ax1.set_title("Date: {:}             Location: {:}, {:} \n Peak Intensity = {:} W/ster    Total Optical Energy = {:} J \n  Yield = {:.2f} kT                 Peak Magnitude = {:.1f}"\
+ #                    .format(date_time, latitude, longitude, caretNotation(peak_intensity, 2), caretNotation(total_energy, 2), total_yield, peak_magnitude))       
     ax1.set_xlim(min(t_list), max(t_list))
     ax2.set_xlim(min(t_list), max(t_list))
 
     ######Change limits for MAGNITUDE HERE
 
-    ax2.set_ylim([-22, -15])
+    ax2.set_ylim([-20, -15])
 
     format_exponent(ax1, axis='y')
 
