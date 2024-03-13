@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-FILE_NAME = "events/Almahatta_Sitta/bolide.2008.284.093418_AS.txt"
-OUTPUT_INT = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_INT.csv"
-OUTPUT_MAG = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_MAG.csv"
+lc_path = "events/Kosice/bolide.2013.120.084037_Kosice"  # path to the LC txt file relative to this script, without the .txt extension
+
+FILE_NAME = f"{lc_path}.txt"  # LC txt file
+OUTPUT_INT = f"{lc_path}_INT.csv"  # intensity csv
+OUTPUT_MAG = f"{lc_path}_MAG.csv"  # bolometric magnitude csv
 
 ##############################################################
 
@@ -135,12 +137,12 @@ def lcPlotter(time_window):
 
 
     t_list = np.array(t_list)
-    print(t_list)
+    # print(t_list)
     I_list = np.array(I_list)
 
     # USING BROWN ET AL 1996 
     M_bol = 6 - 2.5*np.log10(I_list)
-
+    # print(M_bol)
 
 
     ### MAKE PLOTS
@@ -246,7 +248,7 @@ def lcPlotter(time_window):
 
     ######Change limits for MAGNITUDE HERE
 
-    ax2.set_ylim([-20, -15])
+    ax2.set_ylim([np.nanmin(M_bol) - 1, -15])  # change upper ylim to scale with the maximum bolometric magnitude (disregarding nans), lower ylim is -15 since noise threshold is -17
 
     format_exponent(ax1, axis='y')
 

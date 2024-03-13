@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-FILE_NAME = "events/Almahatta_Sitta/bolide.2008.284.093418_AS.txt"
-OUTPUT_INT = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_INT.csv"
-OUTPUT_MAG = "events/Almahatta_Sitta/bolide.2008.284.093418_AS_MAG.csv"
+FILE_NAME = "events/Buzzard_Coulee/bolide.2008.326.002644_BC.txt"
+OUTPUT_INT = "events/Buzzard_Coulee/bolide.2008.326.002644_BC_INT.csv"
+OUTPUT_MAG = "events/Buzzard_Coulee/bolide.2008.326.002644_BC_MAG.csv"
 
 ##############################################################
 
