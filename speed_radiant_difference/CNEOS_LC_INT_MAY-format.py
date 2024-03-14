@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-lc_path = "events/Kosice/bolide.2013.120.084037_Kosice"  # path to the LC txt file relative to this script, without the .txt extension
+lc_path = "events/2019_MO/2019.173.212548_MO"  # path to the LC txt file relative to this script, without the .txt extension
 
 FILE_NAME = f"{lc_path}.txt"  # LC txt file
 OUTPUT_INT = f"{lc_path}_INT.csv"  # intensity csv
@@ -93,41 +93,48 @@ def lcPlotter(time_window):
 
 
     # EXTRACT DATA
-    with open(FILE_NAME, "r+") as f:
+    with open(FILE_NAME, mode="r+", encoding="ISO-8859-1") as f:  # need to use ISO-8859-1 encoding since the May format LCs have a different encoding than the ASCII encoding used by the no images LCs!
      lines = f.readlines()
+     # strip trailing (but NOT leading) whitespaces, including newlines, and also removes lines consisting of ONLY whitespace
+     lines = [line.rstrip() for line in lines if line.rstrip()]
      for line in lines:
-        if line[0] == "(":
-            line = line[1:-3]
+        # print(line[12:-2])
+        # intensity readings are tuples, so this block reads the intensity data
+        if line[-1] == "," or line[-1] == "]":  # the intensity data is formatted so the last character in the line is either a comma or a closing square bracket (for the last line of the file)
+            line = line[12:-2]  # data is formatted so there is either the word "Intensity" (for the first line) or 11 spaces before the intensity data tuple
             line = line.split(",")
             data_list.append(line)
 
+         # this block reads the date and time from the line saying "At XX:XX:XX UT on YY YYY ZZZZ..."
         if "At" in line:
             utc_time = line[3:14]
             date_time = line[18:29]
-        
+
+         # these two blocks read the latitude and longitude 
         if "Lat" in line:
             temp_line = line.split(" ")
             for ww, word in enumerate(temp_line):
                 if word == "Lat":
-                    latitude = temp_line[ww + 1].strip(',\n.')
-
+                    latitude = temp_line[ww + 1].strip(',\n.').translate({ord(char): None for char in '° '})  # removes the degree symbol and the space from the latitude value
         if "Lon" in line:
             temp_line = line.split(" ")
             for ww, word in enumerate(temp_line):
                 if word == "Lon":
-                    longitude = temp_line[ww + 1].strip(',\n.')
-
-        if "Peak Intensity" in line:
+                    longitude = temp_line[ww + 1].strip(',\n.').translate({ord(char): None for char in '° '})  # removes the degree symbol and the space from the longitude value
+                    
+        # this block reads the peak intensity from the header data
+        if "watts" in line:
             temp_line = line.split(" ")
-            peak_intensity = float(temp_line[3])
+            peak_intensity = float(temp_line[5])  # splits the line with "watts" as ['was', 'determined', 'to', 'be', 'approximately', 'PEAK_INTENSITY', 'watts/steradian,', 'and', 'total', 'radiated', 'flash']
             peak_magnitude = 6-2.5*np.log10(peak_intensity)
 
-        if "Total Energy" in line:
+        # this block reads the total energy from the header data
+        if "energy" in line:
             temp_line = line.split(" ")
-            total_energy = float(temp_line[5])
+            total_energy = float(temp_line[1])  # splits the line with "energy" as ['energy', 'TOTAL_ENERGY', 'joules', '(6000K', 'blackbody', 'model).']
             total_yield = 8.2508*(total_energy / 4.185e12) **0.885
-
     # MAKE POINTS
+    # print(data_list)
     for pair in data_list:
         t = float(pair[0])
         I = float(pair[1])

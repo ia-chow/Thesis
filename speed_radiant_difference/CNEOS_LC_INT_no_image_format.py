@@ -96,15 +96,18 @@ def lcPlotter(time_window):
     with open(FILE_NAME, "r+") as f:
      lines = f.readlines()
      for line in lines:
+         # intensity readings are tuples, so this block reads the intensity data
         if line[0] == "(":
             line = line[1:-3]
             line = line.split(",")
             data_list.append(line)
 
+         # this block reads the date and time from the line saying "At XX:XX:XX UT on YY YYY ZZZZ..."
         if "At" in line:
             utc_time = line[3:14]
             date_time = line[18:29]
-        
+
+         # these two blocks read the latitude and longitude 
         if "Lat" in line:
             temp_line = line.split(" ")
             for ww, word in enumerate(temp_line):
@@ -116,12 +119,14 @@ def lcPlotter(time_window):
             for ww, word in enumerate(temp_line):
                 if word == "Lon":
                     longitude = temp_line[ww + 1].strip(',\n.')
-
+                    
+        # this block reads the peak intensity from the Peak Intensity line
         if "Peak Intensity" in line:
             temp_line = line.split(" ")
             peak_intensity = float(temp_line[3])
             peak_magnitude = 6-2.5*np.log10(peak_intensity)
 
+        # this block reads the total energy from the Total Energy line
         if "Total Energy" in line:
             temp_line = line.split(" ")
             total_energy = float(temp_line[5])
