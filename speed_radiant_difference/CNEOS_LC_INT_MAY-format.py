@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-lc_path = "events/2019_MO/2019.173.212548_MO"  # path to the LC txt file relative to this script, without the .txt extension
+lc_path = "events/Vinales/2019.032.181711_Vinales"  # path to the LC txt file relative to this script, without the .txt extension
 
 FILE_NAME = f"{lc_path}.txt"  # LC txt file
 OUTPUT_INT = f"{lc_path}_INT.csv"  # intensity csv
@@ -134,8 +134,8 @@ def lcPlotter(time_window):
             total_energy = float(temp_line[1])  # splits the line with "energy" as ['energy', 'TOTAL_ENERGY', 'joules', '(6000K', 'blackbody', 'model).']
             total_yield = 8.2508*(total_energy / 4.185e12) **0.885
     # MAKE POINTS
-    # print(data_list)
     for pair in data_list:
+        # print(pair[1])
         t = float(pair[0])
         I = float(pair[1])
 

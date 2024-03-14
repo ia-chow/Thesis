@@ -11,9 +11,8 @@ energy 9.02e+10 joules 6000K blackbody model.
 Intensity-time signature of the event and integrated intensity are depicted on the
 plots below.
 
-Intensity=[
-(-0.128, -1.19e+09),
-(-0.125,  4.40e+08),
+Intensity=[(-0.128, -1.19e+09),
+           (-0.125,  4.40e+08),
            (-0.121,  5.33e+07),
            (-0.118,  1.22e+09),
            (-0.115,  8.98e+08),
