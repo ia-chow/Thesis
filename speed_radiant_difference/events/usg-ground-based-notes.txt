@@ -14,9 +14,98 @@ notes after March 15 meeting:
 
 plot speed and radiant difference vs. entry angle  
     colour-coded by duration, peak intensity, total energy (integrated intensity), height of peak brightness
-    6 plots total
+    8 plots total
 
 
 get luminous length, begin height, end height, duration/length above -12 and above -17 for all events
     references from B&B paper
     add to existing events csv files
+
+
+
+Almahatta Sitta:
+
+begin and end heights in fireball sheet corroborated by reference
+no length from either
+
+Buzzard Coulee:
+
+begin, end heights and length in fireball sheet (need to cross-reference w/ reference)
+
+Chelyabinsk:
+
+begin, end heights and length in fireball sheet
+
+Kosice:
+
+begin height in reference is different than fireball sheet (using reference here)
+end heights match
+no length
+
+Motopi Pan:
+
+length provided by fireball sheet, not given in reference
+begin height in reference is different than fireball sheet (using reference here)
+end height not provided in fireball sheet but given in reference
+
+Crawford Bay:
+
+no info provided in fireball sheet
+length provided in reference
+begin, end height estimates provided in reference
+
+Baird Bay:
+
+no info provided in fireball sheet
+length not in reference
+begin height in reference
+end height not estimated in reference due to technical limitations; use large explosion height as end height
+
+Kalabity:
+
+no info provided in fireball sheet
+length not in reference
+begin height in reference
+end height in reference
+
+Romania:
+
+no info provided in fireball sheet
+begin, end height provided in reference
+length not explicitly provided but inferred from Fig. 8 (~66? km)
+
+Flensburg:
+
+begin and end height but not length provided in fireball sheet
+begin height, end height, length all provided in reference; begin and end heights agree between fireball sheet and reference
+
+Novo Mesto:
+
+begin and end height but not length provided in both fireball sheet and reference
+slight disagreement on begin and end height (using reference here)
+
+Saricicek:
+
+length, begin height, end height all provided in fireball sheet (need to cross-reference w/ reference)
+
+Vinales:
+
+
+
+Froslunda:
+
+begin, end height provided in reference but not fireball sheet
+length not provided (or maybe it is but I can't read norwegian)
+
+2022 EB5:
+
+NASA JPL website (reference) doesn't have begin/end heights or length...
+neither does sheet
+
+2019 MO:
+
+NASA JPL website (reference) doesn't have begin/end heights or length...
+neither does sheet
+
+Ozerski:
+
