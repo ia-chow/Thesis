@@ -8,4 +8,15 @@ LCs for all events are in May 2022 format, EXCEPT FOR:
 which are in the no-image format
 
 
-Don't use "_orig" file...
+
+
+notes after March 15 meeting:
+
+plot speed and radiant difference vs. entry angle  
+    colour-coded by duration, peak intensity, total energy (integrated intensity), height of peak brightness
+    6 plots total
+
+
+get luminous length, begin height, end height, duration/length above -12 and above -17 for all events
+    references from B&B paper
+    add to existing events csv files
