@@ -30,7 +30,8 @@ no length from either
 
 Buzzard Coulee:
 
-begin, end heights and length in fireball sheet (need to cross-reference w/ reference)
+begin, end heights and length in fireball sheet
+begin and end heights in reference match sheet, length not provided in reference
 
 Chelyabinsk:
 
@@ -86,11 +87,13 @@ slight disagreement on begin and end height (using reference here)
 
 Saricicek:
 
-length, begin height, end height all provided in fireball sheet (need to cross-reference w/ reference)
+length, begin height, end height all provided in fireball sheet
+begin and end heights in the reference agree with fireball sheet, length not in reference
 
 Vinales:
 
-
+no data in either sheet or reference
+    maybe some data in one of the other papers mentioned in ceballos-izquierda 2021 but they are all in spanish
 
 Froslunda:
 
@@ -108,4 +111,6 @@ NASA JPL website (reference) doesn't have begin/end heights or length...
 neither does sheet
 
 Ozerski:
+
+no data in either sheet or reference
 
