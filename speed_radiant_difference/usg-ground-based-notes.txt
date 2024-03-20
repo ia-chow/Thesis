@@ -8,8 +8,6 @@ LCs for all events are in May 2022 format, EXCEPT FOR:
 which are in the no-image format
 
 
-
-
 notes after March 15 meeting:
 
 plot speed and radiant difference vs. entry angle  
@@ -22,11 +20,11 @@ get luminous length, begin height, end height, duration/length above -12 and abo
     add to existing events csv files
 
 
-
 Almahatta Sitta:
 
 begin and end heights in fireball sheet corroborated by reference
 no length from either
+length imputed from existing data
 
 Buzzard Coulee:
 
@@ -42,6 +40,7 @@ Kosice:
 begin height in reference is different than fireball sheet (using reference here)
 end heights match
 no length
+length imputed from existing data
 
 Motopi Pan:
 
@@ -60,7 +59,9 @@ Baird Bay:
 no info provided in fireball sheet
 length not in reference
 begin height in reference
-end height not estimated in reference due to technical limitations; use large explosion height as end height
+end height not estimated in reference due to technical limitations
+imputed total length from fragmentation height + last estimated speed until final observation
+extrapolated end height from fragmentation height and total length
 
 Kalabity:
 
@@ -68,12 +69,14 @@ no info provided in fireball sheet
 length not in reference
 begin height in reference
 end height in reference
+length imputed from existing data
 
 Romania:
 
 no info provided in fireball sheet
 begin, end height provided in reference
 length not explicitly provided but inferred from Fig. 8 (~66? km)
+length imputed from existing data
 
 Flensburg:
 
@@ -84,6 +87,7 @@ Novo Mesto:
 
 begin and end height but not length provided in both fireball sheet and reference
 slight disagreement on begin and end height (using reference here)
+length imputed from existing data
 
 Saricicek:
 
@@ -92,25 +96,41 @@ begin and end heights in the reference agree with fireball sheet, length not in 
 
 Vinales:
 
-no data in either sheet or reference
-    maybe some data in one of the other papers mentioned in ceballos-izquierda 2021 but they are all in spanish
+no data in sheet
+begin, end height provided in reference, length not in reference
+length imputed from existing data
 
 Froslunda:
 
 begin, end height provided in reference but not fireball sheet
 length not provided (or maybe it is but I can't read norwegian)
+length imputed from existing data
 
 2022 EB5:
 
 NASA JPL website (reference) doesn't have begin/end heights or length...
 neither does sheet
 
+no data
+
 2019 MO:
 
 NASA JPL website (reference) doesn't have begin/end heights or length...
 neither does sheet
 
+Use 62.2 degrees zenith angle, 16.45 km/s speed, 25 km height of peak brightness (from ground-based data)
+GLM light curve has total estimated duration ~0 seconds-2.390 seconds (from 21:25:47.300 UTC - 21:25:49.597 UTC) and peak brightness occurs at ~1.64 seconds (at 21:25:48.939 UTC)
+	Determine length of trail using light curve duration and seed (assuming constant speed)
+	Determine begin and end heights using length of trail, zenith angle, and peak brightness height and time
+
+begin height seems quite low...
+
 Ozerski:
 
 no data in either sheet or reference
+
+Use 12.4 degrees zenith angle, 14.9 km/s speed, 27.2 km height of peak brightness (from paper)
+Light curve has total duration from ~0 seconds-4.4 seconds and the peak brightness occurs at ~3.5 seconds
+	Determine length of trail using light curve duration and speed (assuming constant speed)
+	Determine begin and end heights using length of trail, zenith angle, and peak brightness height and time
 
