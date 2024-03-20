@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-lc_path = "../events/Kalabity/bolide.2015.002.133919_Kalabity"  # path to the LC txt file relative to this script, without the .txt extension
+lc_path = "../events/Kosice/bolide.2013.120.084037_Kosice"  # path to the LC txt file relative to this script, without the .txt extension
 
 FILE_NAME = f"{lc_path}.txt"  # LC txt file
 OUTPUT_INT = f"{lc_path}_INT.csv"  # intensity csv
