@@ -135,8 +135,6 @@ Light curve has total duration from ~0 seconds-4.4 seconds and the peak brightne
 	Determine begin and end heights using length of trail, zenith angle, and peak brightness height and time
 
 
-
-
 Recomputing radiants for several events assuming sign typos in CNEOS data (as in https://iopscience.iop.org/article/10.3847/1538-3881/ac75d2/pdf for TC3/AS) to see if usg, ground-based match up better afterwards:
 
 2008 TC3/Almahatta Sitta:
@@ -161,3 +159,5 @@ flipping [10.3, -12.2, -18.0] km/s to [-10.3, 12.2, -18.0] km/s (flip x and y si
 flipping [10.3, -12.2, -18.0] km/s to [10.3, 12.2, -18.0] km/s (only flip y sign) gives radiant azimuth 353.6 
 
 Re-generated all the speed/radiant diff vs. various parameters plots with the recomputed radiant difference(s) for AS and SC, no obviously noticeable change in the trend...
+
+The only modified radiant azimuths in the EDITED csv are the two for TC3/AS and SC
