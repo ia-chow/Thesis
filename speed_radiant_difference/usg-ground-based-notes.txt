@@ -135,13 +135,29 @@ Light curve has total duration from ~0 seconds-4.4 seconds and the peak brightne
 	Determine begin and end heights using length of trail, zenith angle, and peak brightness height and time
 
 
-TODO: 
-
-Recompute radiant for 2008 TC3/Almahatta Sitta assuming there is a typo in the CNEOS data (as per conclusions in https://iopscience.iop.org/article/10.3847/1538-3881/ac75d2/pdf) using sat-ecf excel sheets
-to see if usg and ground-based match up better afterwards
-    Do this for all the other events with very large radiant differences (Crawford Bay and Saricicek especially, also Buzzard Coulee and Kosice) and see if changing some of the inputs
-    result in a much smaller radiant difference
-    
-Then re-generate all the speed/radiant diff vs. various parameters plots with the recomputed radiant difference(s) and see if we can see a trend there...
 
 
+Recomputing radiants for several events assuming sign typos in CNEOS data (as in https://iopscience.iop.org/article/10.3847/1538-3881/ac75d2/pdf for TC3/AS) to see if usg, ground-based match up better afterwards:
+
+2008 TC3/Almahatta Sitta:
+
+flipping [-9, 9, 3.8] km/s to [-9, 9, -3.8] km/s gives a radiant azimuth that almost exactly matches the ground-based observations, as noted
+
+Buzzard Coulee:
+
+nothing
+
+Kosice:
+
+nothing
+
+Crawford Bay:
+
+nothing
+
+Saricicek:
+
+flipping [10.3, -12.2, -18.0] km/s to [-10.3, 12.2, -18.0] km/s (flip x and y sign) gives radiant azimuth 311.2 compared to 48.8 original and 319.6 ground-based
+flipping [10.3, -12.2, -18.0] km/s to [10.3, 12.2, -18.0] km/s (only flip y sign) gives radiant azimuth 353.6 
+
+Re-generated all the speed/radiant diff vs. various parameters plots with the recomputed radiant difference(s) for AS and SC, no obviously noticeable change in the trend...
