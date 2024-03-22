@@ -137,23 +137,23 @@ Light curve has total duration from ~0 seconds-4.4 seconds and the peak brightne
 
 Recomputing radiants for several events assuming sign typos in CNEOS data (as in https://iopscience.iop.org/article/10.3847/1538-3881/ac75d2/pdf for TC3/AS) to see if usg, ground-based match up better afterwards:
 
-2008 TC3/Almahatta Sitta:
+2008 TC3/Almahatta Sitta (2008-10-07 02:45:45 UT):
 
 flipping [-9, 9, 3.8] km/s to [-9, 9, -3.8] km/s gives a radiant azimuth that almost exactly matches the ground-based observations, as noted
 
-Buzzard Coulee:
+Buzzard Coulee (2008-11-21 00:26:44 UT):
 
 nothing
 
-Kosice:
+Kosice (2010-02-28 22:24:50 UT):
 
 nothing
 
-Crawford Bay:
+Crawford Bay (2017-09-05 05:11:27 UT):
 
 nothing
 
-Saricicek:
+Saricicek (2015-09-02 20:10:30 UT) (typo in the date in B&B):
 
 flipping [10.3, -12.2, -18.0] km/s to [-10.3, 12.2, -18.0] km/s (flip x and y sign) gives radiant azimuth 311.2 compared to 48.8 original and 319.6 ground-based
 flipping [10.3, -12.2, -18.0] km/s to [10.3, 12.2, -18.0] km/s (only flip y sign) gives radiant azimuth 353.6 
