@@ -164,7 +164,7 @@ Re-generated all the speed/radiant diff vs. various parameters plots with the re
 
 TODO:
 
+Speed/radiant diff vs. date plots (done!)
+
 Plot cdfs/histograms of radiant/speed difference across their domain (should see bimodality of radiant diff), take 50% as difference between "low" and "high" radiant diff events?
-Try looking at other dimensionality reduction methods (maybe look at the old t-SNE/UMAP or VAE code from UG work)
-
-
+Try looking at other dimensionality reduction methods (Max's PCA code and maybe look at the old t-SNE/UMAP or VAE code from UG work)
