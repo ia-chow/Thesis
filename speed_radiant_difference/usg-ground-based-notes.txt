@@ -139,24 +139,24 @@ Recomputing radiants for several events assuming sign typos in CNEOS data (as in
 
 2008 TC3/Almahatta Sitta (2008-10-07 02:45:45 UT):
 
-flipping [-9, 9, 3.8] km/s to [-9, 9, -3.8] km/s gives a radiant azimuth that almost exactly matches the ground-based observations, as noted
+flipping [-9, 9, 3.8] km/s to [-9, 9, -3.8] km/s gives a radiant azimuth/zenith angle that produces radiant diff that almost exactly matches the ground-based observations, as noted
 
 Buzzard Coulee (2008-11-21 00:26:44 UT):
 
-nothing
+flipping [3.9, -4.1, -11.6] km/s to [3.9, 4.1, -11.6] km/s gives a radiant azimuth/zenith angle within 11 degrees of ground-based... probably not enough?
+aside from that nothing...
 
 Kosice (2010-02-28 22:24:50 UT):
 
-nothing
+nothing...
 
 Crawford Bay (2017-09-05 05:11:27 UT):
 
-nothing
+nothing...
 
 Saricicek (2015-09-02 20:10:30 UT) (typo in the date in B&B):
 
-flipping [10.3, -12.2, -18.0] km/s to [-10.3, 12.2, -18.0] km/s (flip x and y sign) gives radiant azimuth 311.2 compared to 48.8 original and 319.6 ground-based
-flipping [10.3, -12.2, -18.0] km/s to [10.3, 12.2, -18.0] km/s (only flip y sign) gives radiant azimuth 353.6 
+nothing...
 
 Re-generated all the speed/radiant diff vs. various parameters plots with the recomputed radiant difference(s) for AS and SC, no obviously noticeable change in the trend...
 
