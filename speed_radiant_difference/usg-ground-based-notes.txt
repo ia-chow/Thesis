@@ -161,10 +161,21 @@ nothing...
 Re-generated all the speed/radiant diff vs. various parameters plots with the recomputed radiant difference for AS, no obviously noticeable change in the trend...
 
 
+Added Queensland event (done, although I can't use it in the analysis yet because it doesn't have a LC) 
+Created speed/radiant diff vs. date plots
+Plotted CDFs/histograms of radiant/speed difference across domain
+
+
+Dimensionality reduction (preliminary done):
+
+10 parameters used in pca and umap: speed, height of max brightness, date, begin height, end height, length, peak intensity, duration, total energy, entry angle
+16 data points: everything except qld (no LC) and eb5 (no length or begin/end height)
+    could redo the pca and umap/tsne removing some of these parameters so we could use qld or eb5?
+
+PCA doesn't show anything obvious...
+UMAP identifiies (tentatively) one unique group of 3 (Kalabity, Baird Bay, Froslunda) but could just be luck...
 
 TODO:
 
-Speed/radiant diff vs. date plots (done!)
-
-Plot cdfs/histograms of radiant/speed difference across their domain (should see bimodality of radiant diff), take 50% as difference between "low" and "high" radiant diff events?
-Try looking at other dimensionality reduction methods (Max's PCA code and maybe look at the old t-SNE/UMAP or VAE code from UG work)
+could try the VAE approach (check ug thesis) as well to see if that can predict speed/radiant diff, since PCA/UMAP haven't actually used the y data (speed/radiant diff...)
+    might be a bit too convoluted/not enough data for this to work though...
