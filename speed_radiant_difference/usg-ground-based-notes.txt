@@ -177,5 +177,9 @@ UMAP identifiies (tentatively) one unique group of 3 (Kalabity, Baird Bay, Frosl
 
 TODO:
 
-could try the VAE approach (check ug thesis) as well to see if that can predict speed/radiant diff, since PCA/UMAP haven't actually used the y data (speed/radiant diff...)
-    might be a bit too convoluted/not enough data for this to work though...
+estimate speed/radiant uncertainty for clones simply by drawing from a probability distribution given by the known data
+    figure out how to estimate a smooth distribution from the data
+        make a smooth KDE to sample from
+        could try Gaussian distributed KDE?
+    could try bootstrapping existing data (only 18 points unfortunately...) or other resampling techniques to fill out the distribution better for KDE
+
