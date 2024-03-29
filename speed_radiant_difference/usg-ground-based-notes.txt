@@ -175,11 +175,24 @@ Dimensionality reduction (preliminary done):
 PCA doesn't show anything obvious...
 UMAP identifiies (tentatively) one unique group of 3 (Kalabity, Baird Bay, Froslunda) but could just be luck...
 
+
+Monte Carlo Granvik Model:
+
+Draw smooth KDE to sample from using nonparametric distribution with a Gaussian kernel
+Read in decameter events
+Estimated speed uncertainty for 100 Monte Carlo samples for each decameter event by drawing from the KDE
+    Ran the state vectors for all the Monte Carlo samples for each event through the WMPL code to convert the state vectors to orbital parameters, and then saved the orbital parameters to a .npy file
+    Checked SMA of MC samples againt the true values to see if it was working as expected
+        checks out!
+    
+
 TODO:
 
-estimate speed/radiant uncertainty for clones simply by drawing from a probability distribution given by the known data
-    figure out how to estimate a smooth distribution from the data
-        make a smooth KDE to sample from
-        could try Gaussian distributed KDE?
-    could try bootstrapping existing data (only 18 points unfortunately...) or other resampling techniques to fill out the distribution better for KDE
+- Figure out how to implement radiant uncertainty since the radiant difference is dependent on both the altitude and azimuth, to see how it breaks down into individual uncertainties for altitude and azimuth
+    - Remember the KDE is drawn over the distribution of the log-radiant
+    - Talk to Peter/Denis about this
+- Interpolate Granvik file for a, e, i values to get intermediate values for the parameter space and then run all the orbital parameters through it to get integrated escape region probabilities
+- Figure out why WMPL sometimes doesn't return the orbital parameters when certain state vectors are put as input
+    - Also talk to Peter/Denis about this
+- Remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
 
