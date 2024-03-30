@@ -186,6 +186,7 @@ Estimated speed uncertainty for 100 Monte Carlo samples for each decameter event
         checks out!
     
 
+
 Things TODO for Granvik model probabilistic association of events with escape regions.
 
 1. Figure out how to implement radiant uncertainty since the radiant difference is dependent on both the altitude and azimuth, to see how it breaks down into individual uncertainties for altitude and azimuth
@@ -195,9 +196,7 @@ Things TODO for Granvik model probabilistic association of events with escape re
     - Also talk to Peter/Denis about this
 3. Figure out how to compute absolute magnitude H for each decameter event since the Granvik model is a 4-D distribution using a, e, i, H
     - a, e, i returned by WMPL but it doesn't seem like H is?
-4. Granvik model only has discrete samples of the 4-D distribution in a multidimensional grid, so we use lerp to interpolate the distribution for the whole parameter space
-    - Cubic spline is preferred but no libraries for 4-D cubic spline interpolation in python -- generally seems like a very hard problem
+4. Granvik model only has discrete samples of the 4-D distribution in a multidimensional grid, so interpolate the distribution for the whole parameter space
+    - 3 different methods; RBF with linear, cubic spline over a rectilinear grid (tensor product of several 1-D interpolations), nearest-neighbour
 - Remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
-
-
-Granvik model.dat file has a typo -- single value of Hmag = 15.605 instead of 15.625
+- Granvik model.dat file has a typo; there is a single value of Hmag = 15.605 instead of what I believe should be 15.625
