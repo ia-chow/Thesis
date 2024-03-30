@@ -199,3 +199,5 @@ Things TODO for Granvik model probabilistic association of events with escape re
     - Cubic spline is preferred but no libraries for 4-D cubic spline interpolation in python -- generally seems like a very hard problem
 - Remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
 
+
+Granvik model.dat file has a typo -- single value of Hmag = 15.605 instead of 15.625
