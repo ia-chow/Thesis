@@ -198,5 +198,7 @@ Things TODO for Granvik model probabilistic association of events with escape re
     - a, e, i returned by WMPL but it doesn't seem like H is?
 4. Granvik model only has discrete samples of the 4-D distribution in a multidimensional grid, so interpolate the distribution for the whole parameter space
     - 3 different methods; RBF with linear, cubic spline over a rectilinear grid (tensor product of several 1-D interpolations), nearest-neighbour
+5. Granvik gmb_model.dat and gmb_model-noheader files have a typo; there is a single value of Hmag = 15.605 instead of what I believe should be 15.625
+
 - Remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
-- Granvik model.dat file has a typo; there is a single value of Hmag = 15.605 instead of what I believe should be 15.625
+
