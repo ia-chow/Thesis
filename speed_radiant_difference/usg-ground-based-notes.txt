@@ -184,18 +184,12 @@ Estimated speed uncertainty for 100 Monte Carlo samples for each decameter event
     Ran the state vectors for all the Monte Carlo samples for each event through the WMPL code to convert the state vectors to orbital parameters, and then saved the orbital parameters to a .npy file
     Checked SMA of MC samples againt the true values to see if it was working as expected
         checks out!
-    
 
 
 Things TODO for Granvik model probabilistic association of events with escape regions.
 
-1. Figure out how to implement radiant uncertainty since the radiant difference is dependent on both the altitude and azimuth, to see how it breaks down into individual uncertainties for altitude and azimuth
-    - Remember the KDE is drawn over the distribution of the log-radiant
-    - Talk to Peter about this
 2. Figure out why WMPL sometimes doesn't return the orbital parameters when certain state vectors are input
     - Also talk to Peter/Denis about this
-3. Figure out how to compute absolute magnitude H for each decameter event since the Granvik model is a 4-D distribution using a, e, i, H
-    - a, e, i returned by WMPL but it doesn't seem like H is?
 4. Granvik model only has discrete samples of the 4-D distribution in a multidimensional grid, so interpolate the distribution for the whole parameter space
     - 3 different methods; RBF with linear, cubic spline over a rectilinear grid (tensor product of several 1-D interpolations), nearest-neighbour
 5. Granvik gmb_model.dat and gmb_model-noheader files have a typo; there is a single value of Hmag = 15.605 instead of what I believe should be 15.625
