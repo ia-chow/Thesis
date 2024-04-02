@@ -186,13 +186,17 @@ Estimated speed uncertainty for 100 Monte Carlo samples for each decameter event
         checks out!
 
 
-Things TODO for Granvik model probabilistic association of events with escape regions.
+Granvik model probabilistic association of events with escape regions notes:
 
-2. Figure out why WMPL sometimes doesn't return the orbital parameters when certain state vectors are input
-    - Also talk to Peter/Denis about this
-4. Granvik model only has discrete samples of the 4-D distribution in a multidimensional grid, so interpolate the distribution for the whole parameter space
+2. WMPL sometimes doesn't return the orbital parameters when certain state vectors are input
+    - Could talk to Denis about this
+4. Granvik model only has discrete samples of the 4-D distribution in a multidimensional grid, so interpolating the distribution for the whole parameter space
     - 3 different methods; RBF with linear, cubic spline over a rectilinear grid (tensor product of several 1-D interpolations), nearest-neighbour
+    - Tensor product of 1-D cubic spline interpolations over a rectilinear grid is the method I think I want to do...
 5. Granvik gmb_model.dat and gmb_model-noheader files have a typo; there is a single value of Hmag = 15.605 instead of what I believe should be 15.625
+    - Also remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
 
-- Remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
+TODO:
+
+Once we can estimate the ER probabilities for each region for Chelyabinsk, check Borovicka et al. (2013) to grab the Chelyabinsk a, e, i, H values, plug them into the Granvik model manually to see if the whole pipeline works correctly and gives the ER that we expect
 
