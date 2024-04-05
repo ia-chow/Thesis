@@ -202,7 +202,8 @@ TODO:
 - Grab the a, e, i, H from Borovicka et al. (2013) and check it vs. the Granvik model manually, then put a red line on the Chelyabinsk ER/sigma distributions plot to see if it matches with what we expect DONE!
 	this looks really good
 
-- Add the info for 1994 Marshall Islands and other events (check the Mendeley 10m-project folders to see those...) to the master decameter impactors excel sheet and run everything through the pipeline again to generate the same ER probability/sigma plots for those events as well
+- Add the info for 1994 Marshall Islands and other events (check the Mendeley 10m-project folders to see those...) to the master decameter impactors excel sheet and run everything through the pipeline again to generate the same ER probability/sigma plots for those events as well DONE! (check that the values are right with peter...)
+	this looks pretty noisy... ask peter about this
 
 - Get the CSV of 26.5 <= H <= 28.5, condition code <= 5 asteroids from NASA's website (a few hundred objects) and then run all the AEI (with H equal to the max H in the granvik model) values through the granvik interpolator; then plot the probability distributions of all of those points and compare that to the distributions we see for the decameter impactor events DONE!
 	mostly in line with our decameter impactors; mostly nu6 probabilities between ~0.6-0.8 with some ~0.2 or so from hungaria and 3/1 each
