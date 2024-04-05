@@ -205,10 +205,12 @@ TODO:
 - Add the info for 1994 Marshall Islands and other events (check the Mendeley 10m-project folders to see those...) to the master decameter impactors excel sheet and run everything through the pipeline again to generate the same ER probability/sigma plots for those events as well DONE! (check that the values are right with peter...)
 	- 1994 looks pretty noisy and not sure as wmpl doesn't match up with orbital parameters given in the paper... ask peter about this
     - 1999 (Recent Satellite Observations of Large Meteor Events by Pack et al. 1999) looks ok
+        histogram results are a bit noisy but not as much as the others?
     - 1988
     - 2004 (Satellite Observations of the 3 September, 2004 Antarctic Bolide -- Preliminary Results by Pack et al. 2004 report)
         No paper to compare to but looks ok... speed seems a bit low though?
         Diameter not given so have 10 as a placeholder for now...
+        histogram results look really good!
     - 2001
     - 2002
     - 2000
