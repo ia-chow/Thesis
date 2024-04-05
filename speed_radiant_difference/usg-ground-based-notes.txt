@@ -203,7 +203,15 @@ TODO:
 	this looks really good
 
 - Add the info for 1994 Marshall Islands and other events (check the Mendeley 10m-project folders to see those...) to the master decameter impactors excel sheet and run everything through the pipeline again to generate the same ER probability/sigma plots for those events as well DONE! (check that the values are right with peter...)
-	this looks pretty noisy... ask peter about this
+	- 1994 looks pretty noisy and not sure as wmpl doesn't match up with orbital parameters given in the paper... ask peter about this
+    - 1999 (Recent Satellite Observations of Large Meteor Events by Pack et al. 1999) looks ok
+    - 1988
+    - 2004 (Satellite Observations of the 3 September, 2004 Antarctic Bolide -- Preliminary Results by Pack et al. 2004 report)
+        No paper to compare to but looks ok... speed seems a bit low though?
+        Diameter not given so have 10 as a placeholder for now...
+    - 2001
+    - 2002
+    - 2000
 
 - Get the CSV of 26.5 <= H <= 28.5, condition code <= 5 asteroids from NASA's website (a few hundred objects) and then run all the AEI (with H equal to the max H in the granvik model) values through the granvik interpolator; then plot the probability distributions of all of those points and compare that to the distributions we see for the decameter impactor events DONE!
 	mostly in line with our decameter impactors; mostly nu6 probabilities between ~0.6-0.8 with some ~0.2 or so from hungaria and 3/1 each
