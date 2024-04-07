@@ -216,7 +216,7 @@ TODO:
     - 2000
 
 - Get the CSV of 26.5 <= H <= 28.5, condition code <= 5 asteroids from NASA's website (a few hundred objects) and then run all the AEI (with H equal to the max H in the granvik model) values through the granvik interpolator; then plot the probability distributions of all of those points and compare that to the distributions we see for the decameter impactor events DONE!
-	mostly in line with our decameter impactors; mostly nu6 probabilities between ~0.6-0.8 with some ~0.2 or so from hungaria and 3/1 each
+	mostly in line with our decameter impactors; mostly inner main belt, nu6 probabilities between ~0.6-0.8 with some ~0.2 or so from hungaria and 3/1 each
 
 - Read through the Granvik (2018) paper to understand what all the ERs are and what it physically measn to come from nu6, hungaria etc.
 	- Also check the a vs. e or a vs. i plots in the granvik paper and remake those; make a heatmap distribution of the CNEOS telescopically observed asteroids in phase space and then slap the ~15 or so decameter impactors on top of those points to see how they compare
