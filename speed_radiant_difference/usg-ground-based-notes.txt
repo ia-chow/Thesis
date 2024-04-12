@@ -197,10 +197,7 @@ Granvik model probabilistic association of events with escape regions notes:
     - Also remember that Granvik model file needs to be gotten from the dropbox if I want to use locally
 
 
-TODO:
-
-- Grab the a, e, i, H from Borovicka et al. (2013) and check it vs. the Granvik model manually, then put a red line on the Chelyabinsk ER/sigma distributions plot to see if it matches with what we expect DONE!
-	this looks really good
+Friday, April 12 meeting:
 
 - Add the info for 1994 Marshall Islands and other events (check the Mendeley 10m-project folders to see those...) to the master decameter impactors excel sheet and run everything through the pipeline again to generate the same ER probability/sigma plots for those events as well DONE! (check that the values are right with peter...)
 	- 1994 looks pretty noisy and not sure as wmpl doesn't match up with orbital parameters given in the paper... ask peter about this
@@ -215,8 +212,11 @@ TODO:
     - 2002
     - 2000
 
-- Get the CSV of 26.5 <= H <= 28.5, condition code <= 5 asteroids from NASA's website (a few hundred objects) and then run all the AEI (with H equal to the max H in the granvik model) values through the granvik interpolator; then plot the probability distributions of all of those points and compare that to the distributions we see for the decameter impactor events DONE!
+- Get the CSV of telescopic asteroids with condition code <= 5 asteroids from NASA's website (a few hundred objects) and then run all the AEI (with H equal to the max H in the granvik model) values through the granvik interpolator; then plot the probability distributions of all of those points and compare that to the distributions we see for the decameter impactor events DONE!
 	mostly in line with our decameter impactors; mostly inner main belt, nu6 probabilities between ~0.6-0.8 with some ~0.2 or so from hungaria and 3/1 each
 
-- Read through the Granvik (2018) paper to understand what all the ERs are and what it physically measn to come from nu6, hungaria etc.
-	- Also check the a vs. e or a vs. i plots in the granvik paper and remake those; make a heatmap distribution of the CNEOS telescopically observed asteroids in phase space and then slap the ~15 or so decameter impactors on top of those points to see how they compare
+- Read through the Granvik (2018) paper to understand what all the ERs are and what it physically measn to come from nu6, hungaria etc. DONE!
+
+TODO:
+
+potential typo in 1999 event (44.0 latitude vs. 44.8)... check with paper...
