@@ -217,6 +217,17 @@ Friday, April 12 meeting:
 
 - Read through the Granvik (2018) paper to understand what all the ERs are and what it physically measn to come from nu6, hungaria etc. DONE!
 
+
+K-S test stuff -- DONE BUT CHECK THIS WITH OTHERS TO MAKE SURE IT'S IMPLEMENTED CORRECTLY
+
+The 1 and 2-sample 3-D K-S tests for the aei distributions of impactors vs. telescopic objects using the Peacock 1983 and Fasano & Franceschini 1987 methodology suggest that the p-value is very low (~5e-3 for 1-sample, ~4e-7 for 2-sample) in both cases
+	1-sample case is done by drawing a 3-D KDE over the telescopic distribution and comparing the impactors to that
+	2-sample case is done by directly comparing the telescopic and impactor distribution
+		both cases suggest impactors are statistically distinct -- not drawn from the same aei distribution as the telescopically observed population
+		small sample size for impactors (only ~15 or so) could affect this though, especially individual weirdness like for bering sea...
+
+
 TODO:
 
-potential typo in 1999 event (44.0 latitude vs. 44.8)... check with paper...
+- Read Trilling et al. 2017, DeMeo et al. 2022, Nesvorny et al. 2023 (NEOMOD papers)
+- Potential typo in 1999 event (44.0 latitude vs. 44.8)... check with paper...
