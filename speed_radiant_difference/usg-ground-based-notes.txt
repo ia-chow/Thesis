@@ -220,6 +220,9 @@ Friday, April 12 meeting:
 
 K-S test stuff -- DONE BUT CHECK THIS WITH OTHERS TO MAKE SURE IT'S IMPLEMENTED CORRECTLY
 
+check with max/althea
+	check using althea's r package?
+
 The 1 and 2-sample 3-D K-S tests for the aei distributions of impactors vs. telescopic objects using the Peacock 1983 and Fasano & Franceschini 1987 methodology suggest that the p-value is very low (~5e-3 for 1-sample, ~4e-7 for 2-sample) in both cases
 	1-sample case is done by drawing a 3-D KDE over the telescopic distribution and comparing the impactors to that
 	2-sample case is done by directly comparing the telescopic and impactor distribution
