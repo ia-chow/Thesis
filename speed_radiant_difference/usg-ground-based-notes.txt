@@ -234,3 +234,6 @@ TODO:
 
 - Read Trilling et al. 2017, DeMeo et al. 2022, Nesvorny et al. 2023 (NEOMOD papers)
 - Potential typo in 1999 event (44.0 latitude vs. 44.8)... check with paper...
+- Compute Opik collision probabilities for all the objects in both the impactor and telescopic populations -- should get a 1-D distribution of probabilities
+- Clean up the multivariate K-S code, add additional docs to it and upload to new repo
+	- Talk to Denis to get it added to WMPG github repo afterwards
