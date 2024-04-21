@@ -36,6 +36,7 @@ def ff_test_2sample(s1, s2):
     # by counting the fraction of points in each volume
     for i1, point1 in enumerate(s1):
         # gets the normalized orthant probabilities for s1, s2 over all permutations in permarr
+        # greater than or less than doesn't matter since the results are symmetric when considering all permutations
         normed_orth_probs_s11 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s1) > 
                                                              np.multiply(permarr[:, None], point1), axis=-1), axis=-1)/n1
         normed_orth_probs_s21 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s2) > 
