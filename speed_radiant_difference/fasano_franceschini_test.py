@@ -8,23 +8,6 @@ import numpy as np
 import scipy
 import itertools
 
-# def get_normalized_orth_probs(sample, point, permarr):
-#     """
-#     Get normalized orthant probabilities for an array of samples sample, point point, and permutation array permarr
-#     """
-#     # get sample length and number of dimensions
-#     n, dim = sample.shape
-#     # get probabilities for each orthant
-#     # x1 < x2 is equivalent to -x1 > -x2: we want to evaluate whether the pont falls into a given orthant
-#     # permuting all the samples and the point for a particular orthant
-#     perm_sample = np.multiply(permarr[:, None], sample)
-#     perm_point = np.multiply(permarr[:, None], point)
-#     # finding the number of points in the samples that lie within that orthant
-#     f_orth_probs = np.sum(np.bitwise_and.reduce(perm_sample > perm_point, axis=-1), axis=-1)
-#     # return normalized (divided by the sample length) orthant probabilities
-#     return f_orth_probs/n
-
-
 def ff_test_2sample(s1, s2):
     """
     Computes the 2-sample Fasano-Franceschini test, a multivariate generalization of the Kolmogorov-Smirnov test as outlined by Fasano & Franceschini (1987). The test evaluates the null hypothesis H0 that two i.i.d. random samples are drawn from the same underlying probability distribution. Although Fasano & Franceschini's original paper only evaluates two- and three-dimensional data, the test can be extended to arbitrary dimensions.
@@ -35,6 +18,7 @@ def ff_test_2sample(s1, s2):
     :return: a tuple of the following values:
 
     float statistic: The value of the test statistic, Dn
+    float p-value (NEED TO IMPLEMENT): The p-value
     """
     # lengths and dimensions of the two samples
     n1, dim1 = s1.shape
@@ -48,21 +32,22 @@ def ff_test_2sample(s1, s2):
     # D1 and D2 are the maximum values across all samples from 1...n1 and 1...n2
     D1_arr = np.zeros(n1)
     D2_arr = np.zeros(n2)
-    # Compute the probability of finding points in each of the 2^d volumes of d-dimensional space for the s1 samples, by counting the fraction of points in each volume
+    # Compute the probability of finding points in each of the 2^d volumes of d-dimensional space for the s1 samples
+    # by counting the fraction of points in each volume
     for i1, point1 in enumerate(s1):
         # gets the normalized orthant probabilities for s1, s2 over all permutations in permarr
-        normed_orth_probs_s11 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s1) > np.multiply(permarr[:, None], point1), axis=-1), axis=-1)/n1
-        normed_orth_probs_s21 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s2) > np.multiply(permarr[:, None], point1), axis=-1), axis=-1)/n2
-        # normed_orth_probs_s11 = get_normalized_orth_probs(s1, point1, permarr)  
-        # normed_orth_probs_s21 = get_normalized_orth_probs(s2, point1, permarr)
+        normed_orth_probs_s11 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s1) > 
+                                                             np.multiply(permarr[:, None], point1), axis=-1), axis=-1)/n1
+        normed_orth_probs_s21 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s2) > 
+                                                             np.multiply(permarr[:, None], point1), axis=-1), axis=-1)/n2
         # compute the maximum distance between two corresponding orthant probabilities across all orthants
         D1_arr[i1] = np.max(np.array([np.abs(f11-f21) for f11, f21 in zip(normed_orth_probs_s11, normed_orth_probs_s21)]))
     # and the same for the s2 samples:
     for i2, point2 in enumerate(s2):
-        normed_orth_probs_s12 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s1) > np.multiply(permarr[:, None], point2), axis=-1),axis=-1)/n1
-        normed_orth_probs_s22 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s2) > np.multiply(permarr[:, None], point2), axis=-1), axis=-1)/n2
-        # normed_orth_probs_s12 = get_normalized_orth_probs(s1, point2, permarr)
-        # normed_orth_probs_s22 = get_normalized_orth_probs(s2, point2, permarr)
+        normed_orth_probs_s12 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s1) > 
+                                                             np.multiply(permarr[:, None], point2), axis=-1),axis=-1)/n1
+        normed_orth_probs_s22 = np.sum(np.bitwise_and.reduce(np.multiply(permarr[:, None], s2) > 
+                                                             np.multiply(permarr[:, None], point2), axis=-1), axis=-1)/n2
         # and compute the maximum distance
         D2_arr[i2] = np.max(np.array([np.abs(f12-f22) for f12, f22 in zip(normed_orth_probs_s12, normed_orth_probs_s22)]))
     # Compute the D1, D2 test statistics as the maximum values of D1 and D2 across all samples 1...n1 and 1...n2:
