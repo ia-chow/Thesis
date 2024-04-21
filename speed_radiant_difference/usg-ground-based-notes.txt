@@ -235,5 +235,11 @@ TODO:
 - Read Trilling et al. 2017, DeMeo et al. 2022, Nesvorny et al. 2023 (NEOMOD papers)
 - Potential typo in 1999 event (44.0 latitude vs. 44.8)... check with paper...
 - Compute Opik collision probabilities for all the objects in both the impactor and telescopic populations -- should get a 1-D distribution of probabilities
-- Clean up the multivariate K-S code, add additional docs to it and upload to new repo
-	- Talk to Denis to get it added to WMPG github repo afterwards
+
+- FF-test code:
+	- Add more docs and readme to the git repo
+	- Figure out how to compute the p-value (significance testing) from the test statistic
+		- Either use another implementation found on GH or the Puritz et al. R one 
+	- Talk to Denis to get it added to the WMPG github repo afterwards
+- Clean up the FF-test section of the MC granvik model notebook now that the code for it has been written up neatly
+	- Find a new implementation for the p-value since the expression being used right now is for 2 dimensions (double-check Peacock 1983 and FF 1987 for this)
