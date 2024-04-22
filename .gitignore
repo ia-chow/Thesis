@@ -13,3 +13,5 @@
 ~$*
 # ignore granvik model folder since the .dat file is too big to add
 /speed_radiant_difference/granvik-model
+# ignore .pyc files in pycache
+**/*.pyc
