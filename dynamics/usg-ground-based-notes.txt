@@ -232,14 +232,17 @@ The 1 and 2-sample 3-D K-S tests for the aei distributions of impactors vs. tele
 
 TODO:
 
-- Read Trilling et al. 2017, DeMeo et al. 2022, Nesvorny et al. 2023 (NEOMOD papers)
-- Potential typo in 1999 event (44.0 latitude vs. 44.8)... check with paper...
-- Compute Opik collision probabilities for all the objects in both the impactor and telescopic populations -- should get a 1-D distribution of probabilities
+- Start on slides using Peter's slides format: draft
+	- Background and introduce problem
+- Compute similarity criterion for impactor orbits using WMPL
+	- Southworth-Hawkings D
+	- Drummond D
+- Add my data point (with a cross of errorbars) to the flux plot
+	- X-uncertainty is the binwidth for size
+	- Y-uncertainty reflects uncertainty in bulk density (we assume common bulk density for all objects)
+		- Also y-uncertainty: 1-sigma uncertainty for Poisson distribution of rare events (i.e. what the uncertainty is for getting this number of events in 30 years)
+- Add flux curves in Fig. 22 of Nesvorny et al. (2023)'s NEOMOD paper
+	- Granvik 2018, Harris and Chodas 2021, Heinze et al. 2021, Nesvorny et al. 2023
 
-- FF-test code:
-	- Add more docs and readme to the git repo
-	- Figure out how to compute the p-value (significance testing) from the test statistic
-		- Either use another implementation found on GH or the Puritz et al. R one 
-	- Talk to Denis to get it added to the WMPG github repo afterwards
-- Clean up the FF-test section of the MC granvik model notebook now that the code for it has been written up neatly
-	- Find a new implementation for the p-value since the expression being used right now is for 2 dimensions (double-check Peacock 1983 and FF 1987 for this)
+
+
