@@ -12,6 +12,6 @@
 # ignore temporary MS office files (e.g. locked ~$*.xlsx files created when opening excel)
 ~$*
 # ignore granvik model folder since the .dat file is too big to add
-/granvik-model
+**/granvik-model
 # ignore .pyc files in pycache
 **/*.pyc
