@@ -234,15 +234,18 @@ TODO:
 
 - Start on slides using Peter's slides format: draft
 	- Background and introduce problem
-- Compute similarity criterion for impactor orbits using WMPL
+	- Logan (template 6) with new title slide?
+		- Want to have the WMPL logo on there as well
+		- Purple/white colour scheme is pretty good
+
+- Compute similarity criterion for impactor orbits using WMPL (DONE for now)
 	- Southworth-Hawkings D
 	- Drummond D
-- Add my data point (with a cross of errorbars) to the flux plot
+
+- Add my data point (with a cross of errorbars) to the flux plot DONE
 	- X-uncertainty is the binwidth for size
 	- Y-uncertainty reflects uncertainty in bulk density (we assume common bulk density for all objects)
 		- Also y-uncertainty: 1-sigma uncertainty for Poisson distribution of rare events (i.e. what the uncertainty is for getting this number of events in 30 years)
+
 - Add flux curves in Fig. 22 of Nesvorny et al. (2023)'s NEOMOD paper
 	- Granvik 2018, Harris and Chodas 2021, Heinze et al. 2021, Nesvorny et al. 2023
-
-
-
