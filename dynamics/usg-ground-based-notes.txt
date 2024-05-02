@@ -230,9 +230,9 @@ The 1 and 2-sample 3-D K-S tests for the aei distributions of impactors vs. tele
 		small sample size for impactors (only ~15 or so) could affect this though, especially individual weirdness like for bering sea...
 
 
-TODO:
+DDA:
 
-- Start on slides using Peter's slides format: draft
+- Start on slides using Peter's slides format: draft DONE
 	- Background and introduce problem
 	- Logan (template 6) with new title slide?
 		- Want to have the WMPL logo on there as well
@@ -247,5 +247,19 @@ TODO:
 	- Y-uncertainty reflects uncertainty in bulk density (we assume common bulk density for all objects)
 		- Also y-uncertainty: 1-sigma uncertainty for Poisson distribution of rare events (i.e. what the uncertainty is for getting this number of events in 30 years)
 
-- Add flux curves in Fig. 22 of Nesvorny et al. (2023)'s NEOMOD paper
+- Add flux curves in Fig. 22 of Nesvorny et al. (2023)'s NEOMOD paper DONE
 	- Granvik 2018, Harris and Chodas 2021, Heinze et al. 2021, Nesvorny et al. 2023
+
+TODO:
+
+Papers:
+- Read Schunova-Lilly 2017
+- Read Brown 2002 and Silber 2009
+
+Impactor flux plot:
+- Add diameter to impactor flux plot
+- Separate out telescopic vs. acoustic/fireball data in plot, keep nesvorny h&c and heinze separate
+
+Other plots:
+- Make the a vs. e and a vs. i plots of telescopic/impactor nicer and add the Q and q lines similar to nesvorny et al. 2023
+- Make plot with CDF of the impactor flux and impactor 
