@@ -254,10 +254,13 @@ DDA:
 TODO:
 
 Continue making slides/draft talk
+    Write up script for each of the slides
 
 Papers:
 - Read Schunova-Lilly 2017
-- Read Brown 2002 and Silber 2009
+    - Find CDFs to put next to my impactor/telescopic CDF plots and compare with
+- Read Brown 2002 and Silber 2009 to understand how data was acquired
+- Read papers for 2011 MD and 2010 BD to understand how they determine ~1500 kg/m^3 value for density
 
 Impactor flux plot: DONE
 - Add diameter to impactor flux plot DONE
