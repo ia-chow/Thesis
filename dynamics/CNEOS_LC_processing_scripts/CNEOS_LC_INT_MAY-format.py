@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 ############## CONFIG - YOU CAN CHANGE THESE #################
-lc_path = "../events/Vinales/2019.032.181711_Vinales"  # path to the LC txt file relative to this script, without the .txt extension
+lc_path = "../events/2019_MO/2019.173.212548_MO"  # path to the LC txt file relative to this script, without the .txt extension
 
 FILE_NAME = f"{lc_path}.txt"  # LC txt file
 OUTPUT_INT = f"{lc_path}_INT.csv"  # intensity csv
@@ -261,7 +261,8 @@ def lcPlotter(time_window):
 
 
     plt.gca().invert_yaxis()
-
+    # EDITED TO SAVE FIGURE
+    plt.savefig(lc_path + '.png')
 
     plt.show()
 
