@@ -239,7 +239,7 @@ DDA:
 		- Purple/white colour scheme is pretty good
 
 - Compute similarity criterion for impactor orbits using WMPL (DONE for now)
-	- Southworth-Hawkings D
+	- Southworth-Hawking D
 	- Drummond D
 
 - Add my data point (with a cross of errorbars) to the flux plot DONE
@@ -250,16 +250,19 @@ DDA:
 - Add flux curves in Fig. 22 of Nesvorny et al. (2023)'s NEOMOD paper DONE
 	- Granvik 2018, Harris and Chodas 2021, Heinze et al. 2021, Nesvorny et al. 2023
 
+
 TODO:
+
+Continue making slides/draft talk
 
 Papers:
 - Read Schunova-Lilly 2017
 - Read Brown 2002 and Silber 2009
 
-Impactor flux plot:
-- Add diameter to impactor flux plot
-- Separate out telescopic vs. acoustic/fireball data in plot, keep nesvorny h&c and heinze separate
+Impactor flux plot: DONE
+- Add diameter to impactor flux plot DONE
+- Separate out telescopic vs. acoustic/fireball data in plot, keep nesvorny h&c and heinze separate DONE
 
-Other plots:
-- Make the a vs. e and a vs. i plots of telescopic/impactor nicer and add the Q and q lines similar to nesvorny et al. 2023
-- Make plot with CDF of the impactor flux and impactor 
+Other plots: DONE
+- Make the a vs. e and a vs. i plots of telescopic/impactor nicer and add the Q and q lines similar to nesvorny et al. 2023 DONE
+- Make plot with CDF of the impactor flux and impactor DONE
