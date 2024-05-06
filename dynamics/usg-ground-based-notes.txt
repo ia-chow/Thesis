@@ -251,16 +251,7 @@ DDA:
 	- Granvik 2018, Harris and Chodas 2021, Heinze et al. 2021, Nesvorny et al. 2023
 
 
-TODO:
-
-Continue making slides/draft talk
-    Write up script for each of the slides
-
-Papers:
-- Read Schunova-Lilly 2017
-    - Find CDFs to put next to my impactor/telescopic CDF plots and compare with
-- Read Brown 2002 and Silber 2009 to understand how data was acquired
-- Read papers for 2011 MD and 2010 BD to understand how they determine ~1500 kg/m^3 value for density
+Slides 1:
 
 Impactor flux plot: DONE
 - Add diameter to impactor flux plot DONE
@@ -269,3 +260,26 @@ Impactor flux plot: DONE
 Other plots: DONE
 - Make the a vs. e and a vs. i plots of telescopic/impactor nicer and add the Q and q lines similar to nesvorny et al. 2023 DONE
 - Make plot with CDF of the impactor flux and impactor DONE
+
+
+
+
+TODO:
+
+Redo the entire granvik model pipeline with Bering Sea 25 km/s... already input into the excel CSV, just need to re-run everything DONE
+
+Slides: 
+    - Put the speed and radiant distributions into the backup slides
+    - Write up script for each of the slides
+    - Write up future work slide
+    - Find diagram of asteroid belt with all the ERs marked from Granvik paper or something else similar
+
+Plots:
+    - Remove green points on impactor flux plot and change colour from yellow to something more visible DONE
+
+Papers:
+
+- Find another paper with CDFs to put next to my impactor/telescopic CDF plots and compare with
+- Read Brown 2002 and Silber 2009 to understand how data was acquired
+- Read papers for 2011 MD and 2010 BD to understand how they determine ~1500 kg/m^3 value for density
+- Read DeMeo et al. 2023 to understand the physical characteristics of asteroids (S-type from inner main belt etc.)
