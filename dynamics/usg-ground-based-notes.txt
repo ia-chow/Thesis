@@ -267,12 +267,14 @@ Other plots: DONE
 TODO:
 
 Redo the entire granvik model pipeline with Bering Sea 25 km/s... already input into the excel CSV, just need to re-run everything DONE
+    Put new plots into the slides
 
 Slides: 
     - Put the speed and radiant distributions into the backup slides DONE
     - Write up script for each of the slides
     - Write up future work slide
     - Find diagram of asteroid belt with all the ERs marked from Granvik paper or something else similar
+        - Draw something on the Bottke plot?
 
 Plots:
     - Remove green points on impactor flux plot and change colour from yellow to something more visible DONE
