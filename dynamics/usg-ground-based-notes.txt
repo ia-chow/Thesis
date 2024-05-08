@@ -267,7 +267,7 @@ Other plots: DONE
 TODO:
 
 Redo the entire granvik model pipeline with Bering Sea 25 km/s... already input into the excel CSV, just need to re-run everything DONE
-    Put new plots into the slides
+    Put new plots into the slides DONE
 
 Slides: 
     - Put the speed and radiant distributions into the backup slides DONE
@@ -281,7 +281,7 @@ Plots:
 
 Papers:
 
-- Find another paper with CDFs to put next to my impactor/telescopic CDF plots and compare with
+- Find another paper with CDFs to put next to my impactor/telescopic CDF plots and compare with DONE
 - Read Brown 2002 and Silber 2009 to understand how data was acquired
 - Read papers for 2011 MD and 2010 BD to understand how they determine ~1500 kg/m^3 value for density
 - Read DeMeo et al. 2023 to understand the physical characteristics of asteroids (S-type from inner main belt etc.)
