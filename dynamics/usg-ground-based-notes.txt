@@ -263,19 +263,16 @@ Other plots: DONE
 
 
 
-
-TODO:
+DDA:
 
 Redo the entire granvik model pipeline with Bering Sea 25 km/s... already input into the excel CSV, just need to re-run everything DONE
     Put new plots into the slides DONE
 
 Slides: 
     - Put the speed and radiant distributions into the backup slides DONE
-    - Write up script for each of the slides
-    - Write up future work slide
-    - Find diagram of asteroid belt with all the ERs marked from Granvik paper or something else similar
-        - Draw something on the Bottke plot?
-
+    - Write up script for each of the slides DONE
+    - Write up future work slide DONE
+    - Find diagram of asteroid belt with all the ERs marked from Granvik paper or something else similar DONE
 Plots:
     - Remove green points on impactor flux plot and change colour from yellow to something more visible DONE
 
@@ -285,3 +282,13 @@ Papers:
 - Read Brown 2002 and Silber 2009 to understand how data was acquired
 - Read papers for 2011 MD and 2010 BD to understand how they determine ~1500 kg/m^3 value for density
 - Read DeMeo et al. 2023 to understand the physical characteristics of asteroids (S-type from inner main belt etc.)
+
+
+
+TODO:
+
+- Prepare CASCA poster
+- Mention Althea convo about writing up FF-test Python implementation as a paper/publish on pip
+- Ask what next steps should be after CASCA (any remaining dynamical stuff to finish? MetSim modelling?)
+	- could talk about the d criterion papers althea mentioned
+- Ask about reimbursement for DDA/CASCA
