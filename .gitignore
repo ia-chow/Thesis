@@ -15,3 +15,5 @@
 **/granvik-model
 # ignore .pyc files in pycache
 **/*.pyc
+# ignore the numbered minor planets json file since it's too big to add
+**numberedmps.json
