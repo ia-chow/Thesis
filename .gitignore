@@ -17,3 +17,5 @@
 **/*.pyc
 # ignore json files since they're too big to add
 **/*.json
+# ignore the NumObs.txt file
+**/NumObs.txt
