@@ -17,8 +17,9 @@
 **/*.pyc
 # ignore json files since they're too big to add
 **/*.json
-# ignore the NumObs.txt and UnnObs.txt files
+# ignore the NumObs.txt, UnnObs.txt and CmtObs.txt files
 **/NumObs.txt
 **/UnnObs.txt
+**/CmtObs.txt
 # ignore MPCORB.DAT file
 **/MPCORB.DAT
