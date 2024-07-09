@@ -23,3 +23,5 @@
 **/CmtObs.txt
 # ignore MPCORB.DAT file
 **/MPCORB.DAT
+# ignore CometEls.txt file
+**/CometEls.txt
