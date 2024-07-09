@@ -7,7 +7,6 @@ n_lines = 425059248  # counted using sed -n '$=' NumObs.txt
 
 # Define a function to be applied to each chunk
 def process_chunk(chunk):
-    # print(chunk)
     chunk.columns = ['packed_desig', 'year', 'obs']
     # get all rows where the last three digits are either G96 or 703 (the CSS observatories) and between 2005 and 2012 inclusive
     processed_chunk = chunk[((chunk.obs.astype('string').str[-3:] == 'G96') | (chunk.obs.astype('string').str[-3:] == '703')) &
