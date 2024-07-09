@@ -20,3 +20,5 @@
 # ignore the NumObs.txt and UnnObs.txt files
 **/NumObs.txt
 **/UnnObs.txt
+# ignore MPCORB.DAT file
+**/MPCORB.DAT
