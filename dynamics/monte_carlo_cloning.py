@@ -11,8 +11,9 @@ from sklearn.neighbors import KernelDensity  # kernel density estimation
 cneos_fireballs_raw = pd.read_csv('cneos_fireball_data.csv').dropna(subset=['Peak Brightness Date/Time (UT)', 
                                                                             'Latitude (deg.)', 'Longitude (deg.)', 
                                                                             'Altitude (km)', 'vx', 'vy', 'vz'])
-# remove decameter-sized impactors
-cneos_fireballs_raw = cneos_fireballs_raw[cneos_fireballs_raw['Calculated Total Impact Energy (kt)'] <= 10.]
+# MANUALLY REMOVE THE DECAMETER-SIZED IMPACTORS LATER
+# remove decameter-sized impactors (anything above 10 kt)
+# cneos_fireballs_raw = cneos_fireballs_raw[cneos_fireballs_raw['Calculated Total Impact Energy (kt)'] <= 10.]
 # 304 fireballs in total
 
 # rtd is constant
@@ -201,7 +202,7 @@ def get_zen_azim_diff(zen, azim, theta, n_samples):
 
 
 # draw a monte carlo sample and get the orbital parameters using WMPL
-def get_monte_carlo_orbital_parameters(kdes_state_vector_params, orb_param_variables=orb_param_variables):
+def get_monte_carlo_orbital_parameters(kdes_state_vector_params, orb_param_variables=orb_param_variables, r_sun=0.00465):
     """
     Samples a Monte Carlo sample from provided KDEs for speed and radiant difference, and gets 
     the orbital parameter values corresponding to each parameter in orb_param_variables from the state vector state_vector
@@ -220,6 +221,8 @@ def get_monte_carlo_orbital_parameters(kdes_state_vector_params, orb_param_varia
     returns a 1-D array of parameter values corresponding to the parameters in orb_param_variables, in the same order
     """
     orb_param_array = np.array([])  # initialize orb_param_array as empty array so it doesn't have a size to start
+    ecc = np.nan  # initialize both of these as nans so they don't have a size to start
+    sma = np.nan
 
     # unpack kdes and state_vector_params
     dv_kde, log_drad_kde, v, t, a, o, e, azim, zen = kdes_state_vector_params  # get the kdes and state vector parameters
@@ -227,8 +230,10 @@ def get_monte_carlo_orbital_parameters(kdes_state_vector_params, orb_param_varia
     alt = 90 - zen
     
     #### THIS IS A WHILE LOOP AS A SAFEGUARD BECAUSE IT SEEMS LIKE SOMETIMES WMPL DOESN'T RETURN THE ORBITAL ELEMENTS AT ALL
-    # so if orbital parameter array is empty (no orbital elements returned) then we repeat this
-    while not orb_param_array.size:
+
+    # if orbital parameter array is empty (no orbital elements returned), OR eccentricity is greater than 0.9, OR q is inside the radius of the sun, 
+    # then we repeat this until none of those 3 are true
+    while (not orb_param_array.size or ecc > 0.98 or sma * (1. - ecc) < r_sun):
         np.random.seed(None)  # explicitly reset the seed since the sampler for sklearn doesn't seem to be sampling randomly otherwise
         # get monte carlo sample of the speed and log-radiant uncertainty
         dv = dv_kde.sample(n_samples=1).flatten()  # get a single dv mc sample
@@ -262,7 +267,11 @@ def get_monte_carlo_orbital_parameters(kdes_state_vector_params, orb_param_varia
                                                                      list(map(str.strip, output.stdout.decode('utf-8').split('\n'))) 
                                                                      if elem.startswith(tuple(orb_param_variables))] 
                                     for string in param.split() if string.lstrip('-').replace('.', '').isdigit() or string =='nan'])
-    
+
+        # if it's nonempty then unpack orbital parameter array to update semi major axis and eccentricity for the while loop
+        if orb_param_array.size:
+            sma, ecc, inc, peri, node, M = orb_param_array
+        # otherwise it doesn't matter since the loop will run again anyway
     # return the orbital parameter array
     return orb_param_array
 
