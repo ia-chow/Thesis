@@ -72,4 +72,4 @@ August 2:
 Feb 1994, Dec 2018 are the two events where the data was manually obtained from digitizing
 Feb 2013 data is not USG (manually constructed Chelyabinsk LC)
 
-
+The feb 1994, dec 2018 lcs are not aligned so the maximum brightness is at time 0
