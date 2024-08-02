@@ -9,8 +9,9 @@
 **/*.h5
 # ignore the PyCharm .idea folder
 .idea/
-# ignore temporary MS office files (e.g. locked ~$*.xlsx files created when opening excel)
+# ignore temporary MS office and LibreOffice lock files (e.g. locked ~$*.xlsx or ~lock.xlsx files created when opening excel/LibreOffice)
 ~$*
+*.~lock*
 # ignore granvik model folder since the .dat file is too big to add
 **/granvik-model
 # ignore .pyc files in pycache
