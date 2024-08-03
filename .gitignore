@@ -15,7 +15,7 @@
 # ignore granvik model folder since the .dat file is too big to add
 **/granvik-model
 # ignore .pyc files in pycache
-**/*.pyc
+*.pyc
 # ignore json files since they're too big to add
 **/*.json
 # ignore the NumObs.txt, UnnObs.txt and CmtObs.txt files
