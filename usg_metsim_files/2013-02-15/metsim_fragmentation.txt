@@ -1,0 +1,29 @@
+# MetSim fragmentation file.
+#
+# Types of entries:
+#   - *INIT - Initial parameters taken from the GUI. Ready only, cannot be set in this file.
+#   - M    - Main fragment - parameter change.
+#           - REQUIRED: Height.
+#           - Possible: Ablation coeff, Erosion coeff, Grain masses, Mass index.
+#   - A    - All fragments - parameter change.
+#           - REQUIRED: Height.
+#           - Possible: Ablation coeff, Gamma.
+#   - F    - New single-body fragment.
+#           - REQUIRED: Height, Number, Mass (%).
+#           - Possible: Ablation coeff.
+#   - EF   - New eroding fragment. A mass index of 2.0 will be assumed if not given.
+#           - REQUIRED: Height, Number, Mass (%), Erosion coeff, Grain masses.
+#           - Possible: Ablation coeff, Mass index.
+#   - D    - Dust release. Only the grain mass range needs to be specified. A mass index of 2.0 will be assumed if not given.
+#           - REQUIRED: Height, Mass (%), Grain MIN mass, Grain MAX mass.
+#           - Possible: Mass index.
+#
+#                             INPUTS (leave unchanged fields empty)                                      #        OUTPUTS  (do not fill in!)                                  #
+# ------------------------------------------------------------------------------------------------------ # ------------------------------------------------------------------ #
+# Type, Height (km), Number, Mass (%), Ablation coeff, Gamma, Erosion coeff, Grain MIN, Grain MAX, Mass  #  Time (s),  Dyn pres, Velocity, Parent mass, Mass (kg), Final mass #
+#     ,            ,       ,         , (s^2 km^-2)   ,      , (s^2 km^-2)  , mass (kg), mass (kg), index #          ,  (kPa)   , (km/s)  , (kg)       ,          , (kg)       #
+#-----,------------,-------,---------,---------------,------,--------------,----------,----------,-------#----------,----------,---------,------------,----------,----------- #
+# INIT,     180.000,      1,  100.000,         0.0050,  1.00,        0.0000,          ,          ,       #          ,          ,         ,            ,          ,            #
+    EF,      30.000,      1,   50.000,               ,      ,        1.0000,  1.00e-03,  5.00e-02,  2.00 # 28.520000,  5002.142,   18.558,    5.02e+07,  2.51e+07,            #
+    EF,      25.000,      1,   50.000,               ,      ,        1.0000,  1.00e-03,  5.00e-02,  2.00 # 29.630000, 10899.896,   18.482,    2.49e+07,  1.25e+07,            #
+ # END,       2.758,      1,         ,               ,      ,              ,          ,          ,       #          ,          ,         ,            ,          ,   6.05e+06 #
