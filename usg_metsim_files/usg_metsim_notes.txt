@@ -2,6 +2,8 @@ popova et al (2019 meteoroids book, chapter meteoroid ablation)
 borovicka et al (2020, strengths of ordinary chondrites)
 borovicka et et (2013 kosice)
 
+METSIM PARAMETERS:
+
 rho_bulk = 1500
 rho_grain = 3500
 Lambda * gamma = 0.8 (set A = 0.8)
@@ -9,6 +11,10 @@ Lambda * gamma = 0.8 (set A = 0.8)
 Borovicka et al 2020
 
 bins could be like, 2 or something
+
+light curves: below ~-17 magnitude or so is the noise threshold
+global ablation should be 0.005 (5e-3), grain density 3500 bulk density 1500, none of these should be changed
+ 
 
 
 
@@ -19,33 +25,6 @@ radiant azimuth in the clark paper and in the jpl file sent (13 degrees) doesn't
 zenith angle also doesn't quite match (~66.96 in the jpl file, 66.87 in the usg_input.txt file)
 
 some of the light curves extend below 0 km?? (e.g. oct 2009, jul 2010)
-
-
-Sep 2020: finished for now w/ peter's help 
-
-Feburary 2016: using 1.05e6 mass and something like 3500-4000 grain density, 
-almost matched everything except the final bit (doesn't seem like I can squeeze enough mass out of it at the end unfortunately)
-
-December 2020: using 5e5 mass
-doesn't seem like there's enough mass here?? to get a consistently high light curve throughout -- ask about this during the meeting...
-can't match the last bit again, same issue with not being able to squeeze enough mass out of it at the end
-
-April 2013: using 3e6 mass, 4000 grain density, 0.0005 global ablation coefficient
-matches pretty well other than the light curve being a little too high at the end but that's it
-
-December 2010: using 6e6 mass, 3000 grain density, 1000 bulk density, 0.01 global ablation coefficient
-matches very well throughout, probably the best one
-
-
-
-
-light curves: below ~-17 magnitude or so is the noise threshold
-global ablation should be 0.005 (5e-3), grain density 3500 bulk density 1500, none of these should be changed
- 
-
-
-
-
 
 
 
@@ -67,9 +46,38 @@ January 14 1999 event: doesn't have velocity, entry angle or azimuth data either
 
 
 
+
+
 August 2:
 
 Feb 1994, Dec 2018 are the two events where the data was manually obtained from digitizing
 Feb 2013 data is not USG (manually constructed Chelyabinsk LC)
 
 The feb 1994, dec 2018 lcs are not aligned so the maximum brightness is at time 0
+
+
+EXAMPLE Sep 2020: finished for now w/ peter's help
+
+
+Individual LC MetSim fit notes:
+
+December 2010: using 6e6 mass, 3000 grain density, 1000 bulk density, 0.01 global ablation coefficient, everything else default
+matches very well throughout, probably the best one
+
+February 2013: 1.5e7 mass, default grain/bulk density and ablation coefficient -- can't get enough mass to fill out the peak part -- ask peter!
+
+April 2013: using 3e6 mass, everything else default
+matches pretty well
+
+Feburary 2016: using 1.05e6 mass and something like 3500-4000 grain density, 
+almost matched everything except the final bit (doesn't seem like I can squeeze enough mass out of it at the end unfortunately)
+    try lowering erosion coefficient for some earlier frags to save mass
+
+December 2020: using 5e5 mass
+doesn't seem like there's enough mass here?? to get a consistently high light curve throughout -- ask about this during the meeting...
+can't match the last bit again, same issue with not being able to squeeze enough mass out of it at the end
+
+
+
+
+
