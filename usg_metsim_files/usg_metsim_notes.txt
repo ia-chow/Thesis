@@ -69,13 +69,16 @@ February 2013: 1.5e7 mass, default grain/bulk density and ablation coefficient -
 April 2013: using 3e6 mass, everything else default
 matches pretty well
 
-Feburary 2016: using 1.05e6 mass and something like 3500-4000 grain density, 
-almost matched everything except the final bit (doesn't seem like I can squeeze enough mass out of it at the end unfortunately)
-    try lowering erosion coefficient for some earlier frags to save mass
+February 2016: Use 2.20e6 mass, everything else default, fits perfectly
 
 December 2020: using 5e5 mass
 doesn't seem like there's enough mass here?? to get a consistently high light curve throughout -- ask about this during the meeting...
 can't match the last bit again, same issue with not being able to squeeze enough mass out of it at the end
+
+
+DONE LCs:
+
+02-06-2016
 
 
 
