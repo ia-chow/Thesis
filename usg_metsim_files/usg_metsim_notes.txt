@@ -61,10 +61,10 @@ EXAMPLE Sep 2020: finished for now w/ peter's help
 
 Individual LC MetSim fit notes:
 
-December 2010: using 6e6 mass, 3000 grain density, 1000 bulk density, 0.01 global ablation coefficient, everything else default
-matches very well throughout, probably the best one
+December 2010: using 2.5e6 mass, everything else default
+fits very well (below peak should fall off more sharply than predicted by the lc)
 
-February 2013: 1.5e7 mass, default grain/bulk density and ablation coefficient
+February 2013: 1.5e7 mass, everything else default
 can't squeeze out enough intensity/mass here either
 
 April 2013: using 3-3.5e6 mass, everything else default
@@ -81,6 +81,7 @@ can't squeeze enough intensity out even using only dust?
 
 DONE LCs:
 
+12-25-2010
 02-06-2016
 04-30-2013 provisionally
 
