@@ -67,8 +67,8 @@ matches very well throughout, probably the best one
 February 2013: 1.5e7 mass, default grain/bulk density and ablation coefficient
 can't squeeze out enough intensity/mass here either
 
-April 2013: using 3e6 mass, everything else default
-matches pretty well
+April 2013: using 3-3.5e6 mass, everything else default
+matches pretty well except the very end, could be explained by lc falling off fast
 
 February 2016: Use 2.20e6 mass, everything else default, fits perfectly
 
@@ -82,6 +82,7 @@ can't squeeze enough intensity out even using only dust?
 DONE LCs:
 
 02-06-2016
+04-30-2013 provisionally
 
 
 
