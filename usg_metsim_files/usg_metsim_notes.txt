@@ -64,16 +64,19 @@ Individual LC MetSim fit notes:
 December 2010: using 6e6 mass, 3000 grain density, 1000 bulk density, 0.01 global ablation coefficient, everything else default
 matches very well throughout, probably the best one
 
-February 2013: 1.5e7 mass, default grain/bulk density and ablation coefficient -- can't get enough mass to fill out the peak part -- ask peter!
+February 2013: 1.5e7 mass, default grain/bulk density and ablation coefficient
+can't squeeze out enough intensity/mass here either
 
 April 2013: using 3e6 mass, everything else default
 matches pretty well
 
 February 2016: Use 2.20e6 mass, everything else default, fits perfectly
 
-December 2020: using 5e5 mass
-doesn't seem like there's enough mass here?? to get a consistently high light curve throughout -- ask about this during the meeting...
-can't match the last bit again, same issue with not being able to squeeze enough mass out of it at the end
+December 2020: using 1e6 mass
+doesn't seem like there's enough mass here either?
+
+February 2022: using 6e5 mass
+can't squeeze enough intensity out even using only dust?
 
 
 DONE LCs:
