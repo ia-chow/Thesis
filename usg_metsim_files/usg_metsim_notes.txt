@@ -61,6 +61,9 @@ EXAMPLE Sep 2020: finished for now w/ peter's help
 
 Individual LC MetSim fit notes:
 
+January 1999: using 2.5e6 mass, everything else default
+fits perfectly
+
 December 2010: using 2.5e6 mass, everything else default
 fits very well (below peak should fall off more sharply than predicted by the lc)
 
@@ -81,6 +84,7 @@ can't squeeze enough intensity out even using only dust?
 
 DONE LCs:
 
+01-14-1999
 12-25-2010
 02-06-2016
 04-30-2013 provisionally
