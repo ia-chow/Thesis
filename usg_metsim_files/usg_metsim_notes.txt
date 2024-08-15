@@ -72,11 +72,11 @@ September 2004:
 October 2004: using 6e5 mass (JPL/CNEOS sheet suggests 4e5), everything else default
 can't squeeze out enough intensity to fill out the peak either
 
-December 2006:
+December 2006: having trouble running this one at all using MetSim... just hangs when I try to run it even when reducing timestep and increasing maximum mass
 
-October 2009:
+October 2009 (most problematic):
 
-July 2010:
+July 2010 (most problematic):
 
 December 2010: using 2.5e6 mass, everything else default
 fits very well (below peak should fall off more sharply than predicted by the lc)
@@ -91,7 +91,7 @@ February 2016: Use 2.20e6 mass, everything else default, fits perfectly
 
 December 2018:
 
-December 2020: using 1e6 mass
+December 2020: using 1.2e6 mass
 doesn't seem like there's enough mass here either?
 
 February 2022: using 6e5 mass
