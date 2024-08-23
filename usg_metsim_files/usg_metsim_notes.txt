@@ -75,9 +75,9 @@ can't squeeze out enough intensity to fill out the peak either
 
 December 2006: having trouble running this one at all using MetSim... just hangs when I try to run it even when reducing timestep and increasing maximum mass
 
-October 2009 (most problematic):
+October 2009 (most problematic because goes well below 0):
 
-July 2010 (most problematic):
+July 2010 (most problematic because goes well below 0):
 
 December 2010: using 2.5e6 mass, everything else default
 fits very well (below peak should fall off more sharply than predicted by the lc)
