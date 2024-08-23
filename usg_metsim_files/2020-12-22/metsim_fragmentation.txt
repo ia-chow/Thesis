@@ -17,6 +17,9 @@
 #   - D    - Dust release. Only the grain mass range needs to be specified. A mass index of 2.0 will be assumed if not given.
 #           - REQUIRED: Height, Mass (%), Grain MIN mass, Grain MAX mass.
 #           - Possible: Mass index.
+# 
+# If the character "U" is added before the height (e.g. U92.500), the fragmentation will only be applied when the object is going up.
+# This feature is useful for modelling Earth grazers.
 #
 #                             INPUTS (leave unchanged fields empty)                                      #        OUTPUTS  (do not fill in!)                                  #
 # ------------------------------------------------------------------------------------------------------ # ------------------------------------------------------------------ #
@@ -24,4 +27,4 @@
 #     ,            ,       ,         , (s^2 km^-2)   ,      , (s^2 km^-2)  , mass (kg), mass (kg), index #          ,  (kPa)   , (km/s)  , (kg)       ,          , (kg)       #
 #-----,------------,-------,---------,---------------,------,--------------,----------,----------,-------#----------,----------,---------,------------,----------,----------- #
 # INIT,     180.000,      1,  100.000,         0.0050,  1.00,        0.0000,          ,          ,       #          ,          ,         ,            ,          ,            #
- # END,      36.492,      1,         ,               ,      ,              ,          ,          ,       #          ,          ,         ,            ,          ,   0.00e+00 #
+ # END,      28.809,      1,         ,               ,      ,              ,          ,          ,       #          ,          ,         ,            ,          ,   1.08e+06 #

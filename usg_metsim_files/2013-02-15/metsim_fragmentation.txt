@@ -17,14 +17,18 @@
 #   - D    - Dust release. Only the grain mass range needs to be specified. A mass index of 2.0 will be assumed if not given.
 #           - REQUIRED: Height, Mass (%), Grain MIN mass, Grain MAX mass.
 #           - Possible: Mass index.
+# 
+# If the character "U" is added before the height (e.g. U92.500), the fragmentation will only be applied when the object is going up.
+# This feature is useful for modelling Earth grazers.
 #
 #                             INPUTS (leave unchanged fields empty)                                      #        OUTPUTS  (do not fill in!)                                  #
 # ------------------------------------------------------------------------------------------------------ # ------------------------------------------------------------------ #
 # Type, Height (km), Number, Mass (%), Ablation coeff, Gamma, Erosion coeff, Grain MIN, Grain MAX, Mass  #  Time (s),  Dyn pres, Velocity, Parent mass, Mass (kg), Final mass #
 #     ,            ,       ,         , (s^2 km^-2)   ,      , (s^2 km^-2)  , mass (kg), mass (kg), index #          ,  (kPa)   , (km/s)  , (kg)       ,          , (kg)       #
 #-----,------------,-------,---------,---------------,------,--------------,----------,----------,-------#----------,----------,---------,------------,----------,----------- #
-# INIT,     180.000,      1,  100.000,         0.0050,  1.00,        0.0000,          ,          ,       #          ,          ,         ,            ,          ,            #
-    EF,      36.000,      1,    2.500,               ,      ,        5.3300,  1.00e+00,  5.00e+00,  2.00 # 27.220000,  2115.779,   18.529,    1.49e+07,  3.72e+05,            #
-     D,      30.500,      1,    5.000,               ,      ,              ,  1.00e-01,  5.00e-01,  2.50 # 28.420000,  4576.888,   18.433,    1.44e+07,  7.19e+05,            #
-     D,      29.000,      1,  100.000,               ,      ,              ,  1.00e-01,  5.00e-01,  2.50 # 28.760000,  5738.356,   18.388,    1.36e+07,  1.36e+07,            #
- # END,      28.965,      1,         ,               ,      ,              ,          ,          ,       #          ,          ,         ,            ,          ,   0.00e+00 #
+# INIT,     180.000,      1,  100.000,         0.0050,  0.80,        0.0000,          ,          ,       #          ,          ,         ,            ,          ,            #
+    EF,      36.000,      1,    2.500,               ,      ,        5.3300,  1.00e+00,  5.00e+00,  2.00 # 27.210000,  2106.787,   18.530,    1.49e+07,  3.72e+05,            #
+     D,      30.500,      1,    5.000,               ,      ,              ,  1.00e-01,  5.00e-01,  2.50 # 28.420000,  4584.652,   18.433,    1.44e+07,  7.19e+05,            #
+     A,      30.000,       ,         ,               ,  0.60,              ,          ,          ,       # 28.530000,  4930.556,   18.419,    1.36e+07,          ,            #
+    EF,      29.000,      1,   50.000,               ,      ,        5.3000,  1.00e-01,  5.00e-01,  2.50 # 28.750000,  5713.904,   18.397,    1.36e+07,  6.81e+06,            #
+ # END,       3.283,      1,         ,               ,      ,              ,          ,          ,       #          ,          ,         ,            ,          ,   2.98e+06 #

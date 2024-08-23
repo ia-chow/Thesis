@@ -2,24 +2,21 @@ popova et al (2019 meteoroids book, chapter meteoroid ablation)
 borovicka et al (2020, strengths of ordinary chondrites)
 borovicka et et (2013 kosice)
 
-METSIM PARAMETERS:
+METSIM PARAMETERS TO CHANGE FROM DEFAULT:
 
 rho_bulk = 1500
 rho_grain = 3500
 Lambda * gamma = 0.8 (set A = 0.8)
+Fit type: Borovicka et al 2020
+Erosion parameters bins: 2
+(Global ablation) sigma = 0.005 (5e-3)
+dt = 0.01
 
-Borovicka et al 2020
+could change minimum mass from 1e-14 to 1e-7 in the simulation settings
 
-bins could be like, 2 or something
+General Notes:
 
 light curves: below ~-17 magnitude or so is the noise threshold
-global ablation should be 0.005 (5e-3), grain density 3500 bulk density 1500, none of these should be changed
- 
-
-
-
-
-notes:
 
 radiant azimuth in the clark paper and in the jpl file sent (13 degrees) doesn't match with the one given in usg_input.txt (19 degrees) for the 09/18/2020 fireball? 
 zenith angle also doesn't quite match (~66.96 in the jpl file, 66.87 in the usg_input.txt file)
@@ -73,7 +70,7 @@ fits very well (below peak should fall off more sharply than predicted by the lc
 October 2004: using 6e5 mass (JPL/CNEOS sheet suggests 4e5), everything else default
 can't squeeze out enough intensity to fill out the peak either
 
-December 2006: having trouble running this one at all using MetSim... just hangs when I try to run it even when reducing timestep and increasing maximum mass
+December 2006: start with 2.5e6 mass... need to finish
 
 October 2009 (most problematic because goes well below 0):
 
@@ -85,7 +82,7 @@ fits very well (below peak should fall off more sharply than predicted by the lc
 February 2013: 1.5e7 mass, everything else default
 can't squeeze out enough intensity/mass here either
 
-April 2013: using 3-3.5e6 mass, everything else default
+April 2013: using 3e6 mass, everything else default
 matches pretty well except the very end, could be explained by lc falling off fast
 
 February 2016: Use 2.20e6 mass, everything else default, fits perfectly
