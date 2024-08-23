@@ -67,7 +67,8 @@ fits perfectly
 January 1999: using 2.5e6 mass, everything else default
 fits perfectly
 
-September 2004 (problematic):
+September 2004: using 6e6 mass, everything else default
+fits very well (below peak should fall off more sharply than predicted by the lc)
 
 October 2004: using 6e5 mass (JPL/CNEOS sheet suggests 4e5), everything else default
 can't squeeze out enough intensity to fill out the peak either
@@ -103,6 +104,7 @@ DONE LCs:
 
 02-01-1994
 01-14-1999
+09-03-2004
 12-25-2010
 04-30-2013 provisionally
 02-06-2016
