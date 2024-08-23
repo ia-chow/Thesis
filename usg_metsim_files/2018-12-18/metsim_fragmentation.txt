@@ -1,0 +1,34 @@
+# MetSim fragmentation file.
+#
+# Types of entries:
+#   - *INIT - Initial parameters taken from the GUI. Ready only, cannot be set in this file.
+#   - M    - Main fragment - parameter change.
+#           - REQUIRED: Height.
+#           - Possible: Ablation coeff, Erosion coeff, Grain masses, Mass index.
+#   - A    - All fragments - parameter change.
+#           - REQUIRED: Height.
+#           - Possible: Ablation coeff, Gamma.
+#   - F    - New single-body fragment.
+#           - REQUIRED: Height, Number, Mass (%).
+#           - Possible: Ablation coeff.
+#   - EF   - New eroding fragment. A mass index of 2.0 will be assumed if not given.
+#           - REQUIRED: Height, Number, Mass (%), Erosion coeff, Grain masses.
+#           - Possible: Ablation coeff, Mass index.
+#   - D    - Dust release. Only the grain mass range needs to be specified. A mass index of 2.0 will be assumed if not given.
+#           - REQUIRED: Height, Mass (%), Grain MIN mass, Grain MAX mass.
+#           - Possible: Mass index.
+#
+#                             INPUTS (leave unchanged fields empty)                                      #        OUTPUTS  (do not fill in!)                                  #
+# ------------------------------------------------------------------------------------------------------ # ------------------------------------------------------------------ #
+# Type, Height (km), Number, Mass (%), Ablation coeff, Gamma, Erosion coeff, Grain MIN, Grain MAX, Mass  #  Time (s),  Dyn pres, Velocity, Parent mass, Mass (kg), Final mass #
+#     ,            ,       ,         , (s^2 km^-2)   ,      , (s^2 km^-2)  , mass (kg), mass (kg), index #          ,  (kPa)   , (km/s)  , (kg)       ,          , (kg)       #
+#-----,------------,-------,---------,---------------,------,--------------,----------,----------,-------#----------,----------,---------,------------,----------,----------- #
+# INIT,     180.000,      1,  100.000,         0.0050,  1.00,        0.0000,          ,          ,       #          ,          ,         ,            ,          ,            #
+     D,      31.000,       ,    5.000,               ,      ,              ,  1.00e+02,  5.00e+02,  2.50 #  6.390000,  8382.531,   24.871,    1.87e+06,  9.35e+04,            #
+     D,      30.500,       ,    5.000,               ,      ,              ,  1.00e+02,  5.00e+02,  2.50 #  6.410000,  8972.564,   24.862,    1.77e+06,  8.87e+04,            #
+     D,      30.000,       ,    5.000,               ,      ,              ,  1.00e+02,  5.00e+02,  2.50 #  6.430000,  9606.618,   24.853,    1.68e+06,  8.42e+04,            #
+     D,      29.500,       ,   15.000,               ,      ,              ,  1.00e+02,  5.00e+02,  2.50 #  6.450000, 10288.148,   24.842,    1.60e+06,  2.40e+05,            #
+     D,      29.000,       ,   25.000,               ,      ,              ,  1.00e+02,  5.00e+02,  2.50 #  6.470000, 11020.497,   24.830,    1.36e+06,  3.39e+05,            #
+     D,      28.500,       ,   25.000,               ,      ,              ,  1.00e+01,  5.00e+01,  2.50 #  6.500000, 12222.167,   24.809,    1.01e+06,  2.54e+05,            #
+    EF,      28.000,      1,  100.000,               ,      ,        0.5000,  1.00e-01,  5.00e-01,  2.50 #  6.520000, 13097.806,   24.791,    7.59e+05,  7.59e+05,            #
+ # END,      27.829,      1,         ,               ,      ,              ,          ,          ,       #          ,          ,         ,            ,          ,   0.00e+00 #

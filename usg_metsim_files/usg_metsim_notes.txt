@@ -67,7 +67,7 @@ fits perfectly
 January 1999: using 2.5e6 mass, everything else default
 fits perfectly
 
-September 2004:
+September 2004 (problematic):
 
 October 2004: using 6e5 mass (JPL/CNEOS sheet suggests 4e5), everything else default
 can't squeeze out enough intensity to fill out the peak either
@@ -89,7 +89,8 @@ matches pretty well except the very end, could be explained by lc falling off fa
 
 February 2016: Use 2.20e6 mass, everything else default, fits perfectly
 
-December 2018:
+December 2018: Using 1.9e6 mass, everything else default
+fits very well (below peak falls off more sharply than predicted by lc as expected)
 
 December 2020: using 1.2e6 mass
 doesn't seem like there's enough mass here either?
@@ -105,6 +106,7 @@ DONE LCs:
 12-25-2010
 04-30-2013 provisionally
 02-06-2016
+12-18-2018
 
 
 
