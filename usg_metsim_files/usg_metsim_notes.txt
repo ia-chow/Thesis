@@ -67,25 +67,29 @@ fits perfectly
 September 2004: using 6e6 mass, everything else default
 fits very well (below peak should fall off more sharply than predicted by the lc)
 
-October 2004: using 6e5 mass (JPL/CNEOS sheet suggests 4e5), everything else default
-can't squeeze out enough intensity to fill out the peak either
+October 2004: using 2e6 mass, everything else default
+fits perfectly
 
 December 2006: start with 2.5e6 mass... need to finish
 
 October 2009 (most problematic because goes well below 0):
+PUT ON HOLD BECAUSE DATA IS VERY BAD
 
-July 2010 (most problematic because goes well below 0):
+July 2010: using 2.2e6 mass, everything else default
+fits perfectly
 
 December 2010: using 2.5e6 mass, everything else default
 fits very well (below peak should fall off more sharply than predicted by the lc)
 
 February 2013: 1.5e7 mass, everything else default
 can't squeeze out enough intensity/mass here either
+PUT ON HOLD UNTIL PANCAKE MODEL
 
 April 2013: using 3e6 mass, everything else default
 matches pretty well except the very end, could be explained by lc falling off fast
 
-February 2016: Use 2.20e6 mass, everything else default, fits perfectly
+February 2016: Use 2.20e6 mass, everything else default
+fits perfectly
 
 December 2018: Using 1.9e6 mass, everything else default
 fits very well (below peak falls off more sharply than predicted by lc as expected)
@@ -102,6 +106,7 @@ DONE LCs:
 02-01-1994
 01-14-1999
 09-03-2004
+10-07-2004
 12-25-2010
 04-30-2013 provisionally
 02-06-2016
