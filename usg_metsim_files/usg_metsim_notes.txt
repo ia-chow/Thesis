@@ -70,7 +70,8 @@ fits very well (below peak should fall off more sharply than predicted by the lc
 October 2004: using 2e6 mass, everything else default
 fits perfectly
 
-December 2006: start with 2.5e6 mass... need to finish
+December 2006: using 2.5e6 mass, Hinit = 120 km (because very shallow entry angle), everything else default
+fits decently except at the very end, come back to this later
 
 October 2009 (most problematic because goes well below 0):
 PUT ON HOLD BECAUSE DATA IS VERY BAD
@@ -107,6 +108,7 @@ DONE LCs:
 01-14-1999
 09-03-2004
 10-07-2004
+07-06-2010
 12-25-2010
 04-30-2013 provisionally
 02-06-2016
