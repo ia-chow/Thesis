@@ -71,7 +71,7 @@ October 2004: using 2e6 mass, everything else default
 fits perfectly
 
 December 2006: using 2.5e6 mass, Hinit = 120 km (because very shallow entry angle), everything else default
-fits decently except at the very end, come back to this later
+fits decently
 
 October 2009 (most problematic because goes well below 0):
 PUT ON HOLD BECAUSE DATA IS VERY BAD
@@ -108,11 +108,16 @@ DONE LCs:
 01-14-1999
 09-03-2004
 10-07-2004
+12-09-2006 provisionally
 07-06-2010
 12-25-2010
 04-30-2013 provisionally
 02-06-2016
 12-18-2018
+12-22-2020 ehh
+02-07-2022 provisionally
+
+shelving october 2009 for bad data and february 2013 because needed pancaking
 
 
 
