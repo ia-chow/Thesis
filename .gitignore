@@ -16,8 +16,8 @@
 **/granvik-model
 # ignore .pyc files in pycache
 *.pyc
-# ignore json files since they're too big to add
-**/*.json
+# ignore the MPC and EMCCD .json files in dynamics/ since they're too big to add
+**/dynamics/*.json
 # ignore the NumObs.txt, UnnObs.txt and CmtObs.txt files
 **/NumObs.txt
 **/UnnObs.txt
