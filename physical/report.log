@@ -1,0 +1,57 @@
+2024-10-29 15:46:05,596 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 74, in generate_swarm
+    lb, ub = bounds
+ValueError: too many values to unpack (expected 2)
+2024-10-29 15:48:40,289 - pyswarms.single.local_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9, 'k': 10, 'p': 1}
+2024-10-29 15:49:56,759 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9, 'k': 10, 'p': 1}
+2024-10-29 15:56:22,773 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2024-10-29 15:56:23,379 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 6.18811699634334e-44, best pos: [-2.48755382e-22  1.38916920e-24]
+2024-10-29 15:56:31,160 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2024-10-29 15:56:31,813 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 0.0, best pos: [3.66292965e-09 1.38404664e-09]
+2024-10-29 16:03:37,043 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:06:14,232 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:06:35,271 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:09:06,079 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 67, in generate_swarm
+    raise ValueError("User-defined init_pos is out of bounds.")
+ValueError: User-defined init_pos is out of bounds.
+2024-10-29 16:09:34,494 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:12:13,965 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:13:55,652 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:14:25,080 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:16:38,205 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:17:16,392 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 36415.99097467534, best pos: [0.99912602 0.54823667 0.69057121 0.34994328 0.41624337]
+2024-10-29 16:43:06,927 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 67, in generate_swarm
+    raise ValueError("User-defined init_pos is out of bounds.")
+ValueError: User-defined init_pos is out of bounds.
+2024-10-29 16:45:42,716 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 67, in generate_swarm
+    raise ValueError("User-defined init_pos is out of bounds.")
+ValueError: User-defined init_pos is out of bounds.
+2024-10-29 16:51:07,049 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 67, in generate_swarm
+    raise ValueError("User-defined init_pos is out of bounds.")
+ValueError: User-defined init_pos is out of bounds.
+2024-10-29 16:51:13,010 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 67, in generate_swarm
+    raise ValueError("User-defined init_pos is out of bounds.")
+ValueError: User-defined init_pos is out of bounds.
+2024-10-29 16:54:30,468 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (5,)
+Traceback (most recent call last):
+  File "/home/chowi/miniconda3/envs/wmpl/lib/python3.8/site-packages/pyswarms/backend/generators.py", line 67, in generate_swarm
+    raise ValueError("User-defined init_pos is out of bounds.")
+ValueError: User-defined init_pos is out of bounds.
+2024-10-29 16:55:02,599 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:56:32,463 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 16:59:35,907 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 17:02:21,896 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 17:11:38,307 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 17:15:22,382 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-10-29 17:19:05,505 - pyswarms.single.global_best - INFO - Optimize for 1000 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
