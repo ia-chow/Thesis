@@ -563,6 +563,6 @@ optimizer = ps.single.GlobalBestPSO(n_particles=pso_particles,
 
 cost, pos = optimizer.optimize(get_lc_cost_function_pso, 
                                iters=1000, 
-                               # n_processes = multiprocessing.cpu_count() - 1
+                               n_processes = multiprocessing.cpu_count() - 1
                               )
 
