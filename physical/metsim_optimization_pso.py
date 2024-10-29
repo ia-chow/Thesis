@@ -366,16 +366,16 @@ def sim_lc(flattened_free_params, metsim_obj):
 
 
 ### define cost function for the optimization routine
-def get_lc_cost_function(flattened_free_params, metsim_obj):
+def get_lc_cost_function(flattened_free_params, metsim_obj, pso):
     """
     Gets the residuals for the integrated intensity given
     a metsim object and a list/tuple of an initial guess of free parameters
     
     metsim_obj is an MetSim() object
-    
     flattened_free_params is an initial guess flattened list of free parameters with the form
     flattened_free_params = [rho, rho_grain, m_init, sigma, *frag_masses, 
     *frag_ab_coeffs, *frag_er_coeffs, *frag_grain_mins, *frag_grain_maxs]
+    pso is a boolean for if pso is being used
 
     Global parameters:
     rho: float
@@ -395,6 +395,9 @@ def get_lc_cost_function(flattened_free_params, metsim_obj):
     obs_lc_intensity = 3030 * (10 ** (metsim_obj.usg_data.absolute_magnitudes/(-2.5)))
 
     # get simulated LC intensity onthe object
+    # flatten if pso is being used
+    if pso:
+        flattened_free_params = flattened_free_params.flatten()
     simulation_results = sim_lc(flattened_free_params, metsim_obj)
     # compute simulated LC intensity
     # find where height starts increasing if it does at any point
@@ -411,9 +414,10 @@ def get_lc_cost_function(flattened_free_params, metsim_obj):
     # return the negative log-likelihood (negative residual sum of square difference between the two)
     # assuming there is no error for the observed LC data
     log_likelihood = (-1/2 * np.nansum((obs_lc_intensity - simulated_lc_intensity) ** 2))/1e24  # scale this
-    print(f'negative logL: {-log_likelihood}')
+    # print(f'negative logL: {-log_likelihood}')
     # negative log lieklihood
     return -log_likelihood
+
 
 # Get the initial guess from the analyzer fit 
 initial_guess = np.array(flatten_list(metsim_obj.free_params))
@@ -439,7 +443,7 @@ fragmentation_count = len(FREE_FRAG_INDICES)
 frag_mass_percents = tuple((0., 100.) for _ in range(fragmentation_count))
 # Frag erosion coeffs
 frag_erosion_coeffs = tuple([(0., 0.) if entry.frag_type == 'D' 
-                             else (0.1 * 1e-6, 6.0 * 1e-6) for entry in 
+                             else (0.01 * 1e-6, 6.0 * 1e-6) for entry in 
                              [metsim_obj.fragmentation_entries[i] for i in FREE_FRAG_INDICES]])
 # Frag grain mins
 frag_grain_mins = tuple((1e-4, 1e1) for _ in range(fragmentation_count))
@@ -463,7 +467,7 @@ for i in range(len(unflatten_list(initial_guess)[-1])):
 
 # Run normal optimization:
 best_fit = scipy.optimize.minimize(fun=lambda free_params_flattened: 
-                                   get_lc_cost_function(free_params_flattened, metsim_obj=metsim_obj),
+                                   get_lc_cost_function(free_params_flattened, metsim_obj=metsim_obj, pso=False),
                                    x0=initial_guess_mod, 
                                    method='trust-constr',
                                    # method='L-BFGS-B',
