@@ -525,7 +525,8 @@ pso_iterations = 10
 pso_particles = 100
 
 # # Set up hyperparameters
-options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+# options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9, 'k': 10, 'p': 1}
 bounds_pso = tuple(np.array(bounds).T)
 initial_guess_pso = initial_guess.reshape(1, len(initial_guess))
 
