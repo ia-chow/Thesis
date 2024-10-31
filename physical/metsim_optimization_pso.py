@@ -443,12 +443,12 @@ fragmentation_count = len(FREE_FRAG_INDICES)
 frag_mass_percents = tuple((0., 100.) for _ in range(fragmentation_count))
 # Frag erosion coeffs
 frag_erosion_coeffs = tuple([(0., 0.) if entry.frag_type == 'D' 
-                             else (0.01 * 1e-6, 6.0 * 1e-6) for entry in 
+                             else (0.05 * 1e-6, 6.0 * 1e-6) for entry in 
                              [metsim_obj.fragmentation_entries[i] for i in FREE_FRAG_INDICES]])
 # Frag grain mins
-frag_grain_mins = tuple((1e-4, 1e1) for _ in range(fragmentation_count))
+frag_grain_mins = tuple((1e-3, 1e1) for _ in range(fragmentation_count))
 # Frag grain maxs
-frag_grain_maxs = tuple((1e-3, 1e2) for _ in range(fragmentation_count))
+frag_grain_maxs = tuple((1e-2, 1e2) for _ in range(fragmentation_count))
 # Combine them into a single flat tuple
 #### CHANGE THE RESULTS/BOUNDS DEPENDING ON WHAT COMBINATION IS BEING USED!
 result = frag_mass_percents + frag_erosion_coeffs + frag_grain_mins + frag_grain_maxs
@@ -465,57 +465,68 @@ for i in range(len(unflatten_list(initial_guess)[-1])):
                              "fun": lambda free_params_flattened: 
                              int(unflatten_list(free_params_flattened)[-2][i] > unflatten_list(free_params_flattened)[-1][i])})
 
-# Run normal optimization:
-best_fit = scipy.optimize.minimize(fun=lambda free_params_flattened: 
-                                   get_lc_cost_function(free_params_flattened, metsim_obj=metsim_obj, pso=False),
-                                   x0=initial_guess_mod, 
-                                   method='trust-constr',
-                                   # method='L-BFGS-B',
-                                   # method='SLSQP',
-                                   # method='BFGS',
-                                   # method='Nelder-Mead',
-                                   bounds=bounds, 
-                                   options={'verbose': 2, 
-                                            'maxiter': 50, 
-                                            # 'gtol': 9e-1
-                                            # 'return_all': True,
-                                           },
-                                   constraints=mass_constraints, 
-                                   # callback=MinimizeStopper()
-                                  )#, options={'maxiter': 1e5})
+# # Run normal optimization:
+# best_fit = scipy.optimize.minimize(fun=lambda free_params_flattened: 
+#                                    get_lc_cost_function(free_params_flattened, metsim_obj=metsim_obj, pso=False),
+#                                    x0=initial_guess_mod, 
+#                                    method='trust-constr',
+#                                    # method='L-BFGS-B',
+#                                    # method='SLSQP',
+#                                    # method='BFGS',
+#                                    # method='Nelder-Mead',
+#                                    bounds=bounds, 
+#                                    options={'verbose': 2, 
+#                                             'maxiter': 50, 
+#                                             # 'gtol': 9e-1
+#                                             # 'return_all': True,
+#                                            },
+#                                    constraints=mass_constraints, 
+#                                    # callback=MinimizeStopper()
+#                                   )#, options={'maxiter': 1e5})
 
-# Compare original LC to simulated LCs with the initial guess and the best-fit guess:
-results_initial = sim_lc(initial_guess, metsim_obj)
-results_bf = sim_lc(best_fit.x, metsim_obj)
+# # Compare original LC to simulated LCs with the initial guess and the best-fit guess:
+# results_initial = sim_lc(initial_guess, metsim_obj)
+# results_bf = sim_lc(best_fit.x, metsim_obj)
 
-# Plot:
-plt.figure(figsize = (12, 8))
-# interpolate the results initial and results leading frag heights
-if np.sum(np.diff(results_initial.leading_frag_height_arr) > 0) > 0:
-    first_increasing_height_arr = np.where(np.diff(results_initial.leading_frag_height_arr) > 0)[0][0] - 1
-else:
-    first_increasing_height_arr = -1
-interpolated_initial_int = np.interp(metsim_obj.traj.observations[0].model_ht, 
-          np.flip(results_initial.leading_frag_height_arr[:first_increasing_height_arr]), 
-          np.flip(results_initial.luminosity_arr[:first_increasing_height_arr]))
-interpolated_bf_int = np.interp(metsim_obj.traj.observations[0].model_ht, 
-          np.flip(results_bf.leading_frag_height_arr[:first_increasing_height_arr]), 
-          np.flip(results_bf.luminosity_arr[:first_increasing_height_arr]))
-# plot
-plt.plot(interpolated_initial_int, metsim_obj.traj.observations[0].model_ht/1000., label = 'leading initial guess')
-plt.plot(interpolated_bf_int, metsim_obj.traj.observations[0].model_ht/1000., label = 'leading best fit')
-# y limit
-plt.ylim(10., 80.)
-plt.legend()
-# show
-plt.show()
+# # Plot:
+# plt.figure(figsize = (12, 8))
+# # interpolate the results initial and results leading frag heights
+# if np.sum(np.diff(results_initial.leading_frag_height_arr) > 0) > 0:
+#     first_increasing_height_arr = np.where(np.diff(results_initial.leading_frag_height_arr) > 0)[0][0] - 1
+# else:
+#     first_increasing_height_arr = -1
+# interpolated_initial_int = np.interp(metsim_obj.traj.observations[0].model_ht, 
+#           np.flip(results_initial.leading_frag_height_arr[:first_increasing_height_arr]), 
+#           np.flip(results_initial.luminosity_arr[:first_increasing_height_arr]))
+# interpolated_bf_int = np.interp(metsim_obj.traj.observations[0].model_ht, 
+#           np.flip(results_bf.leading_frag_height_arr[:first_increasing_height_arr]), 
+#           np.flip(results_bf.luminosity_arr[:first_increasing_height_arr]))
+# # plot
+# plt.plot(interpolated_initial_int, metsim_obj.traj.observations[0].model_ht/1000., label = 'leading initial guess')
+# plt.plot(interpolated_bf_int, metsim_obj.traj.observations[0].model_ht/1000., label = 'leading best fit')
+# # y limit
+# plt.ylim(10., 80.)
+# plt.legend()
+# # show
+# plt.show()
 
 #### PSO OPTIMIZATION:
 import pyswarms as ps
 from pyswarms.utils.plotters import plot_cost_history
 
-def get_lc_cost_function_pso(free_params_flattened, metsim_obj=metsim_obj, pso=True):
-    return get_lc_cost_function(free_params_flattened, metsim_obj, pso)
+def get_lc_cost_function_pso(free_params_flattened_all_particles, metsim_obj=metsim_obj, pso=True):
+    """
+    hacky fix to ensure that grain min cannot be greater than grain max
+    """
+    total_cost = 0
+    for particle in free_params_flattened_all_particles:
+        # hacky fix to stop metsim from crashing if grain min > grain max
+        if particle[-2] > particle[-1]:
+            return np.inf
+        # total cost
+        else:
+            total_cost += get_lc_cost_function(particle, metsim_obj, pso)
+    return total_cost
 
 ### Only fit parameters of fragmentation processes which are used ###
 # bounds = []
@@ -525,8 +536,8 @@ pso_iterations = 10
 pso_particles = 100
 
 # # Set up hyperparameters
-# options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
-options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9, 'k': 10, 'p': 1}
+# options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9}  # global
+options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9, 'k': 10, 'p': 1}  # local
 bounds_pso = tuple(np.array(bounds).T)
 initial_guess_pso = initial_guess.reshape(1, len(initial_guess))
 
@@ -538,8 +549,7 @@ rng = np.random.default_rng(seed=1234)
 init_pos = rng.multivariate_normal(initial_guess_pso.flatten(), cov * cov_factor, size = pso_particles)
 
 # check cost function on all the initial particles
-for pos in init_pos:
-    print(get_lc_cost_function_pso(pos))
+print(get_lc_cost_function_pso(init_pos))
 
 # ### HOW METSIM DOES IT:
 # # Normalize the fit parameters to the [0, 1] range
@@ -559,7 +569,7 @@ for pos in init_pos:
 # init_pos = np.append(init_pos, np.array([p0_normed]), axis=0)
 
 # Run PSO:
-optimizer = ps.single.GlobalBestPSO(n_particles=pso_particles, 
+optimizer = ps.single.LocalBestPSO(n_particles=pso_particles, 
                                     dimensions=len(initial_guess), 
                                     options=options, 
                                     bounds=bounds_pso, 
