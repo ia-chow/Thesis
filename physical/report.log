@@ -145,3 +145,10 @@ ValueError: User-defined init_pos is out of bounds.
 2024-11-01 16:05:29,062 - pyswarms.single.global_best - INFO - Optimize for 100 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
 2024-11-01 16:33:34,863 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 159.4068659417027, best pos: [1.51490608e+06 3.49883647e+01 8.62704445e-08 1.23675185e+00
  5.01148804e+00]
+2024-11-01 16:44:34,832 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-11-01 17:07:36,468 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-11-01 17:23:55,210 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-11-01 17:49:55,469 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-11-01 17:59:47,343 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
+2024-11-01 18:29:27,263 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 157.18231258976823, best pos: [1.52227073e+06 3.59625272e+01 8.58213151e-08 9.22525426e-01
+ 4.42947238e+00]
