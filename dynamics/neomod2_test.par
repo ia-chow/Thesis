@@ -1,0 +1,4 @@
+input_neomod2.dat    
+-50202002    ! seed for random number generator 
+100           ! number of NEOs to be generated, less or equal to 0 for real number
+26.5 28.0    ! magnitude range (hmag1,hmag2), 9<=hmag1<28, 15<hmag2<=33, hmag2>=hmag1+0.25, bin resolution 0.25 mag  

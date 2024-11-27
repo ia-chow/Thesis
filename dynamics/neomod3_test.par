@@ -1,0 +1,4 @@
+input_neomod3.dat    
+-50202002    ! seed for random number generator 
+100           ! number of NEOs to be generated, less or equal to 0 for real number
+0.0079 0.016     ! size range (diam1,diam2), note that 0.001<=diam1<diam2<=100 km 
