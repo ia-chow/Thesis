@@ -24,7 +24,7 @@
 **/CmtObs.txt
 # ignore MPCORB.DAT and other large .dat files
 **/MPCORB.DAT
-**/neomod2.dat
-**/neomod3.dat
+**/input_neomod2.dat
+**/input_neomod3.dat
 # ignore CometEls.txt file
 **/CometEls.txt
