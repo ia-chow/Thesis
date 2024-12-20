@@ -16,14 +16,6 @@ earth_cart_vels = []
 ast_cart_positions = []
 ast_cart_vels = []
 
-# initialize simulation
-sim = rb.Simulation('rebound_archive_walltime.bin', snapshot=-1)  # start from the most recent snapshot
-sim.start_server(port=1235)  # start server
-sun, mercury, venus, earth, mars, jupiter = sim.particles[0:6]
-
-# set up simulationarchive and have it save every two hours of real time
-sim.save_to_file('rebound_archive_walltime.bin', walltime=3600, delete_file=True)  # every hour
-
 def my_merge(sim_pointer, collided_particles_index):
     sim = sim_pointer.contents # retreive the standard simulation object
     ps = sim.particles # easy access to list of particles
@@ -57,6 +49,12 @@ def my_merge(sim_pointer, collided_particles_index):
     elif j.hash == sun.hash:
         print('Collision with the Sun')
         return 1
+    elif i.hash == jupiter.hash:
+        print('Collision with Jupiter')
+        return 2   # remove index j
+    elif j.hash == jupiter.hash:
+        print('Collision with Jupiter')
+        return 1  # remove index i
     elif i.hash == venus.hash:
         print('Collision with Venus')
         return 2
@@ -108,6 +106,17 @@ def mergeParticles(sim):
         sim.remove(index=col_i1)
     else:
         print('two asteroids collided? nothing removed')
+
+# initialize simulation
+sim = rb.Simulation('rebound_archive_walltime.bin', snapshot=-1)  # start from the most recent snapshot
+sim.start_server(port=1235)  # start server
+sun, mercury, venus, earth, mars, jupiter = sim.particles[0:6]
+sim.collision = 'direct'
+sim.collision_resolve = my_merge
+sim.collision_resolve_keep_sorted = 1
+
+# set up simulationarchive and have it save every two hours of real time
+sim.save_to_file('rebound_archive_walltime.bin', walltime=3600, delete_file=False)  # every hour
 
 # integrate, keep recording positions and velocities
 times = np.linspace(sim.t, 1.e8, int(1e9))  # integrate
