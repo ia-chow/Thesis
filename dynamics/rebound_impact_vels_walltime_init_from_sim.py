@@ -22,7 +22,8 @@ def my_merge(sim_pointer, collided_particles_index):
     i = ps[collided_particles_index.p1]   # Note that p1 < p2 is not guaranteed.    
     j = ps[collided_particles_index.p2]
     # record positions and velocities and remove
-    print(i.hash, j.hash)
+    with open(col_file, 'a') as f:
+        print(' '.join(i.hash, j.hash, file=f))
     # save this to a bin file so it can be loaded later
     # sim.save_to_file(f'sim_particles_{i.hash}{j.hash}_col_walltime.bin')
     if i.hash == earth.hash:  # if i is the earth
