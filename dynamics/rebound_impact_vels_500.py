@@ -1,9 +1,5 @@
 import numpy as np
-import pandas as pd
-import scipy
 import multiprocessing
-import matplotlib.pyplot as plt
-import os
 import subprocess
 import rebound as rb
 from tqdm import tqdm
@@ -66,7 +62,7 @@ neomod3_filename = './NEOMOD3_CODE'
 # generate debiased steady-state orbital distribution for both
 size_min = 0.0079  # minimum size NEOMOD 3, km
 size_max = 0.016  # maximum size NEOMOD 3, km
-n_objs = 10000  # number of objects to generate
+n_objs = 5000  # number of objects to generate
 seed = int(np.random.default_rng().random() * -50202002)  # random seed
 
 # generate neomod3 output:
@@ -164,6 +160,7 @@ def my_merge(sim_pointer, collided_particles_index):
     # record positions and velocities and remove
     with open(col_file, 'a') as f:
         print(f'particle index:{i.index},{j.index}, seed:{seed}', file=f)
+        print(f'Simulation time:{sim.t}, Simulation number of particles:{sim.N}', file=f)
     # save this to a bin file so it can be loaded later
     # sim.save_to_file(f'sim_particles_{i.hash}{j.hash}_col_walltime.bin')
     if i == earth:  # if i is the earth
@@ -172,13 +169,10 @@ def my_merge(sim_pointer, collided_particles_index):
         ast_cart_positions.append(j.xyz)
         ast_cart_vels.append(j.vxyz)
         with open(col_file, 'a') as f:
-            print(f'\nCollision with Earth, seed:{seed}', file=f)
-            print(f'Asteroid mass {j.m}', file=f)
-            print(f'Asteroid orbital elements: a {j.a}, e {j.e}, i {j.inc}, 
-                  omega {j.omega}, Omega {j.Omega}, M {j.M}')
-            print(f'Earth position {earth.xyz}, Earth velocity {earth.vxyz}, 
-                  Asteroid position {j.xyz}, Asteroid velocity {j.vxyz}', 
-                  file=f)
+            print(f'Collision with Earth, seed:{seed}', file=f)
+            print(f'Asteroid mass: {j.m}, Asteroid diameter: {i.r}', file=f)
+            print(f'Asteroid orbital elements: a {j.a}, e {j.e}, i {j.inc}, omega {j.omega}, Omega {j.Omega}, M {j.M}', file=f)
+            print(f'Earth position {earth.xyz}, Earth velocity {earth.vxyz}, Asteroid position {j.xyz}, Asteroid velocity {j.vxyz}', file=f)
         return 2  # remove particles with index j
     elif j == earth:  # if j is the earth
         earth_cart_positions.append(earth.xyz)
@@ -186,13 +180,10 @@ def my_merge(sim_pointer, collided_particles_index):
         ast_cart_positions.append(i.xyz)
         ast_cart_vels.append(i.vxyz)
         with open(col_file, 'a') as f:
-            print(f'\nCollision with Earth, seed:{seed}', file=f)
-            print(f'Asteroid mass: {i.m}', file=f)
-            print(f'Asteroid orbital elements: a {i.a}, e {i.e}, i {i.inc}, 
-                  omega {i.omega}, Omega {i.Omega}, M {i.M}')
-            print(f'Earth position {earth.xyz}, Earth velocity {earth.vxyz}, 
-                  Asteroid position {i.xyz}, Asteroid velocity {i.vxyz}', 
-                  file=f)
+            print(f'Collision with Earth, seed:{seed}', file=f)
+            print(f'Asteroid mass: {i.m}, Asteroid diameter: {i.r}', file=f)
+            print(f'Asteroid orbital elements: a {i.a}, e {i.e}, i {i.inc}, omega {i.omega}, Omega {i.Omega}, M {i.M}', file=f)
+            print(f'Earth position {earth.xyz}, Earth velocity {earth.vxyz}, Asteroid position {i.xyz}, Asteroid velocity {i.vxyz}', file=f)
         return 1  # remove particles with index i
     elif i == sun:
         with open(col_file, 'a') as f:
@@ -305,8 +296,8 @@ sim.collision = 'direct'  # trace must use direct, could change this with a diff
 sim.collision_resolve = my_merge
 sim.collision_resolve_keep_sorted = 1
 
-# set up simulationarchive and have it save every hour of real time
-# sim.save_to_file(f'rebound_archive_walltime_{seed}.bin', walltime=3600, delete_file=False)  # every hour
+# set up simulationarchive and have it save every 500 years
+sim.save_to_file(f'./rebound_archives/rebound_archive_500_{seed}.bin', interval=500., delete_file=False)  # every hour
 
 # collision file
 col_file = 'collisions.txt'

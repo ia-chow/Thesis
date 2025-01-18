@@ -12,6 +12,13 @@
 # ignore temporary MS office and LibreOffice lock files (e.g. locked ~$*.xlsx or ~lock.xlsx files created when opening excel/LibreOffice)
 ~$*
 *.~lock*
+# ignore .nfs files
+.nfs*
+# ignore nohup.out
+**/nohup.out
+# ignore the rebound_archives and rebound_archives_alt folders with the rebound binaries
+**/rebound_archives
+**/rebound_archives_alt
 # ignore granvik model folder since the .dat file is too big to add
 **/granvik-model
 # ignore .pyc files in pycache
