@@ -97,14 +97,6 @@ def my_merge(sim_pointer, collided_particles_index):
 
 # NEED TO FIND SOME NODE TO RUN THESE ON:
 
-# seed = -9599505
-# seed = -40420280
-# seed = -22194913
-# seed = -48240473
-# seed = -20660870
-# seed = -35969771
-# seed = -40420280
-# seed = -37771772
 # seed = -33894958
 
 def my_merge(sim_pointer, collided_particles_index):
