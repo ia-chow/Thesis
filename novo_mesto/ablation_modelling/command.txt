@@ -1,0 +1,3 @@
+python -m wmpl.MetSim.GUI C:\Users\denis\Dropbox\UWO\Projects\fireballs\2020-02-28_slovenia_daytime\ablation_modelling\20200228_093032_trajectory_20220213_nine_stations.pickle --lc C:\Users\denis\Dropbox\UWO\Projects\fireballs\2020-02-28_slovenia_daytime\ablation_modelling\light_curve.csv --load .
+
+python -m wmpl.MetSim.GUI /home/dvida/Dropbox/UWO/Projects/fireballs/2020-02-28_slovenia_daytime/ablation_modelling/20200228_093032_trajectory_20220213_nine_stations.pickle --lc /home/dvida/Dropbox/UWO/Projects/fireballs/2020-02-28_slovenia_daytime/ablation_modelling/light_curve.csv --load .
