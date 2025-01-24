@@ -2,7 +2,7 @@ Bolide Detection Notification: 2022-038
 
 At 20:06:25 UT on 07 Feb 2022, sensors aboard U. S. Government satellites recorded
 the flash signature of a large meteoroid entry into the atmosphere. Location of the
-flash was Lat 28.7 °S, Lon 11.4 °E.
+flash was Lat 28.7 ï¿½S, Lon 11.4 ï¿½E.
 
 Based upon the visible-light intensity-time signature, peak brightness of the flash
 was determined to be approximately 4.07e+11 watts/steradian, and total radiated flash
