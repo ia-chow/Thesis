@@ -18,7 +18,7 @@ lat = 54.8
 lon = 61.1
 
 # Height (km)
-ht = 23.3
+ht = 29.5
 
 
 # Radiant (ground-fixed):
