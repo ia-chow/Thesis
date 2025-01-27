@@ -97,7 +97,9 @@ def my_merge(sim_pointer, collided_particles_index):
 
 # NEED TO FIND SOME NODE TO RUN THESE ON:
 
-# seed = -33894958
+
+# seed = #
+
 
 def my_merge(sim_pointer, collided_particles_index):
     sim = sim_pointer.contents # retreive the standard simulation object
