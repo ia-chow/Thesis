@@ -6222,3 +6222,22 @@ particle index:1227,0, seed:-17880064
 Collision with the Sun, seed:-17880064
 particle index:2,304, seed:-11329916
 Collision with Venus, seed:-11329916
+particle index:2301,0, seed:-8186013
+Collision with the Sun, seed:-8186013
+particle index:1231,3, seed:-13056998
+Simulation time:204751.1320046484, Simulation number of particles:2551
+Collision with Earth, seed:-13056998
+Asteroid mass: 2239488.0000000005, Asteroid diameter: 9.6264e-11
+Asteroid orbital elements: a 2.106351042258496, e 0.7119421486235422, i 0.16831874633511776, omega 4.705053752007327, Omega 1.3959965439909168, M 6.019896146953031
+Earth position [-0.14145020928722354, -0.993396438912988, -0.006352003958868495], Earth velocity [6.204801607117788, -0.8393232671773333, -0.10524141562129466], Asteroid position [-0.14145149998297046, -0.9934331554865485, -0.006371587082337574], Asteroid velocity [6.818725810851325, 3.4937758836917703, -1.0377771136125316]
+particle index:2324,2, seed:-31888272
+Collision with Venus, seed:-31888272
+particle index:2485,0, seed:-6658365
+Collision with the Sun, seed:-6658365
+particle index:951,0, seed:-13056998
+Simulation time:205101.29235258416, Simulation number of particles:2550
+Collision with the Sun, seed:-13056998
+particle index:375,0, seed:-20382827
+Collision with the Sun, seed:-20382827
+particle index:1315,0, seed:-6658365
+Collision with the Sun, seed:-6658365
