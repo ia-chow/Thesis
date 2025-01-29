@@ -573,29 +573,6 @@ def prior(cube, tup_bounds=bounds, n_frags=fragmentation_count, er_frags=len(ER_
     # print(f'cube:{cube[3 * n_frags + er_frags + 1: 4 * n_frags + er_frags + 1]}')
     return cube
 
-def run_with_timeout(func, timeout, *args, **kwargs):
-    """
-    Runs a function with a timeout using signal.
-    Returns `nan` if the function exceeds the timeout.
-
-    :param func: The function to execute.
-    :param timeout: The maximum allowed execution time (in seconds).
-    :param args: Positional arguments for the function.
-    :param kwargs: Keyword arguments for the function.
-    :return: The function's return value, or `nan` if it times out.
-    """
-    # Set the timeout handler
-    signal.signal(signal.SIGALRM, timeout_handler)
-    signal.alarm(timeout)  # Start the timer
-    try:
-        result = func(*args, **kwargs)
-    except TimeoutException:
-        result = math.nan  # Return `nan` on timeout
-    finally:
-        signal.alarm(0)  # Cancel the alarm
-    return result
-
-
 def log_likelihood(particle, metsim_obj=metsim_obj, timeout=10):
     """
     similar to the get_lc_cost_function function but with positive instead of negative log-likelihood
