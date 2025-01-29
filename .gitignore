@@ -14,8 +14,8 @@
 *.~lock*
 # ignore .nfs files
 .nfs*
-# ignore nohup.out
-**/nohup.out
+# ignore .out files like nohup.out
+**/*.out
 # ignore the rebound_archives and rebound_archives_alt folders with the rebound binaries
 **/rebound_archives
 **/rebound_archives_alt
