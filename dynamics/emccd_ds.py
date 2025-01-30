@@ -4,8 +4,8 @@ import pandas as pd
 import multiprocessing
 import itertools
 
-# import Dcriteria function
-from Dcriteria import calcDSH
+# import Dcriteria functions
+from Dcriteria import calcDSH, calcDH
 # Read in EMCCD data
 emccd_meteors_raw = pd.read_json('solution_table.json')
 # filter showers so only sporadics:
@@ -36,9 +36,16 @@ emccd_elems = np.c_[emccd_qs, emccd_es, emccd_is, emccd_nodes, emccd_omegas]
 # wrapper for calcDSH
 def get_DSH(i1, i2, elems=emccd_elems):
     """
-    Get the dsh value for two indices
+    Get the dsh value (Southworth & Hawkins 1963) for two indices
     """
     return calcDSH(*elems[i1], *elems[i2])
+
+# wrapper for calcDH
+def get_DH(i1, i2, elems=emccd_elems):
+    """
+    Get the dh value (Jopek 1993) for two indices)
+    """
+    return calcDH(*elems[i1], *elems[i2])
 
 # n threads
 n_threads = multiprocessing.cpu_count() - 1
@@ -65,9 +72,9 @@ for start, end in groups:
     # use multiprocessing to compute for this group:
     with multiprocessing.Pool(n_threads) as pool:
         # end + 1 because the end isn't indexed otherwise
-        results = np.array(list(tqdm(pool.starmap(get_DSH, itertools.combinations(range(start, end + 1), r = 2)))))
+        results = np.array(list(tqdm(pool.starmap(get_DH, itertools.combinations(range(start, end + 1), r = 2)))))
         # save to numpy array
-        np.save(f'./emccd_d_vals/emccd_ds_{start}_{end}.npy', results)
+        np.save(f'./emccd_d_vals/emccd_dhs_{start}_{end}.npy', results)
 
 # Process cross-group pairs
 for group_i, group_j in itertools.combinations(groups, 2):  # All unique group pairs
@@ -75,6 +82,6 @@ for group_i, group_j in itertools.combinations(groups, 2):  # All unique group p
     start_i, end_i = group_i
     start_j, end_j = group_j
     with multiprocessing.Pool(n_threads) as pool:
-        results = np.array(list(tqdm(pool.starmap(get_DSH, itertools.product(range(start_i, end_i + 1), range(start_j, end_j + 1))))))
+        results = np.array(list(tqdm(pool.starmap(get_DH, itertools.product(range(start_i, end_i + 1), range(start_j, end_j + 1))))))
         # save to numpy array
-        np.save(f'./emccd_d_vals/emccd_ds_cg_{end_i}_{end_j}.npy', results)
+        np.save(f'./emccd_d_vals/emccd_dhs_cg_{end_i}_{end_j}.npy', results)
