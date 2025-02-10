@@ -2,7 +2,7 @@ Bolide Detection Notification: 2020-059
 
 At 09:30:34 UT on 28 Feb 2020, sensors aboard U. S. Government satellites recorded
 the flash signature of a large meteoroid entry into the atmosphere. Location of the
-flash was Lat 45.7 °N, Lon 15.1 °E.
+flash was Lat 45.7 ï¿½N, Lon 15.1 ï¿½E.
 
 Based upon the visible-light intensity-time signature, peak brightness of the flash
 was determined to be approximately 4.18e+10 watts/steradian, and total radiated flash
