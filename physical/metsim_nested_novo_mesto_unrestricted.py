@@ -327,12 +327,12 @@ class MetSimObj():
 event_path = '../novo_mesto/ablation_modelling/20200228_093032_trajectory_20220213_nine_stations'
 
 FIXED_FRAG_INDICES = []
-FREE_FRAG_INDICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]#, 6, 7, 8]  # fragments with free parameters
-ER_FRAG_INDICES = [0, 1, 2, 4, 5, 6, 7, 8, 9]#, 2, 3, 4]  # free fragments that have erosion coefficients
+FREE_FRAG_INDICES = [0, 1, 2, 3, 4, 5, 6, 7]#, 8, 9]#, 6, 7, 8]  # fragments with free parameters
+ER_FRAG_INDICES = [0, 1, 2, 4, 5, 6, 7]#, 8, 9]#, 2, 3, 4]  # free fragments that have erosion coefficients
 
 metsim_obj = MetSimObj(traj_path=event_path + '.pickle', 
                        const_json_file=event_path + '.picklesim_fit_latest.json',
-                       lc_path='../novo_mesto/ablation_modelling/light_curve_edited_sorted.csv',
+                       lc_path='../novo_mesto/ablation_modelling/light_curve_corr_edited_sorted.csv',
                        fixed_frag_indices = FIXED_FRAG_INDICES,
                        free_frag_indices = FREE_FRAG_INDICES,
                        er_frag_indices = ER_FRAG_INDICES
@@ -459,7 +459,7 @@ initial_guess = np.load('./initial_guesses/initial_guess_novo_mesto.npy')  # ini
 
 # Print:
 lamb_func = lambda free_params_flattened: get_lc_cost_function(free_params_flattened, metsim_obj=metsim_obj, pso=False)
-print(f'Initial guess:{lamb_func(initial_guess)}')  # DENIS' BEST FIT FOR NOVO MESTO IS ~449
+print(f'Initial guess:{lamb_func(initial_guess)}')  # DENIS' BEST FIT FOR NOVO MESTO IS ~4.299
 
 #### USE THIS TO TEST DIFFERENT COMBINATIONS OF TEST PARAMETERS
 # Modified guess:
@@ -468,11 +468,11 @@ initial_guess_mod = initial_guess.copy()
 initial_guess_mod[0] = initial_guess[0]
 # fiddle with frag masses
 initial_guess_mod = initial_guess + [0., # total mass
-                                     0., 0., 0., 0., 0., 0., 0., 0., 0., 0., # frag mass pcts
-                                     0., 0., 0., 0., 0., 0., 0., 1.e-8, 0., # erosion coeffs
-                                     0., 0., 0., 0., 0., 0., 0., 0., 1.e-4, # grain mins
-                                     0., 0., 0., 0., 0., 1.e-3, 0., 0., 0.,  # grain maxs
-                                     0., 1000., 0., 0., 0., 0., 0., 0., 0., 0., # heights
+                                     0., 0., 0., 0., 0., 0., 0., 0.,# 0., 0., # frag mass pcts
+                                     0., 0., 0., 0., 0., 0., 1.e-8,# 1.e-8, 0., # erosion coeffs
+                                     0., 0., 0., 0., 0., 0., 0.,# 0.,# 1.e-4, # grain mins
+                                     0., 0., 0., 0., 0., 1.e-3, 0.,# 0.,# 0.,  # grain maxs
+                                     0., 1000., 0., 0., 0., 0., 0., 0.,# 0., 0., # heights
                                     ] 
 print(f'Modified: {lamb_func(initial_guess_mod)}')
 
@@ -492,7 +492,7 @@ frag_mass_percents = tuple((0., 100.) for _ in range(fragmentation_count))
 # frag_erosion_coeffs = tuple([(0., 0.) if entry.frag_type == 'D' 
 #                              else (0.23 * 1e-6, 6.0 * 1e-6) for entry in metsim_obj.fragmentation_entries])
 # keep lower bound above 0.1e6 because that's where the initial guess is
-frag_erosion_coeffs = tuple([(0.01 * 1e-6, 5.0 * 1e-6) for entry in 
+frag_erosion_coeffs = tuple([(0.01 * 1e-6, 10.0 * 1e-6) for entry in 
                              [metsim_obj.fragmentation_entries[i] for i in ER_FRAG_INDICES]])
 # frag_erosion_coeffs = tuple((0.23 * 1e-6, 6.0 * 1e-6) for _ in range(fragmentation_count))
 # Frag grain mins
@@ -514,12 +514,12 @@ bounds = hard_bounds
 
 # Optionally include more restrictive bounds for the priors:
 # initialize particles
-cov_factor = 1.e-1  # CHANGE THIS DEPENDING ON THE EVENT
-cov = np.float64(np.diag(np.ones(len(initial_guess)) * (initial_guess ** 2))) * cov_factor
-# cov = np.eye(len(initial_guess), len(initial_guess)) * cov_factor
-mu = initial_guess
-bounds = tuple([tuple(np.clip((mu[i] - 2. * np.diag(np.sqrt(cov))[i], mu[i] + 2. * np.diag(np.sqrt(cov))[i]), 
-                        hard_bounds[i][0], hard_bounds[i][1])) for i in range(0, len(mu))])
+# cov_factor = 1.e-1  # CHANGE THIS DEPENDING ON THE EVENT
+# cov = np.float64(np.diag(np.ones(len(initial_guess)) * (initial_guess ** 2))) * cov_factor
+# # cov = np.eye(len(initial_guess), len(initial_guess)) * cov_factor
+# mu = initial_guess
+# bounds = tuple([tuple(np.clip((mu[i] - 2. * np.diag(np.sqrt(cov))[i], mu[i] + 2. * np.diag(np.sqrt(cov))[i]), 
+#                         hard_bounds[i][0], hard_bounds[i][1])) for i in range(0, len(mu))])
 
 # manually change certain bounds
 bounds = np.array(bounds)
@@ -528,7 +528,7 @@ bounds[0] = (1.e2, 5.e4)
 bounds[1:len(frag_mass_percents) + 1] = np.repeat([(0., 100.)], len(frag_mass_percents), axis=0)
 # Height bounds:
 # CHANGE THIS DEPENDING ON HEIGHT
-height_bounds = 200.  # permissible values plus or minus the starting fragmentation height
+height_bounds = 850.  # permissible values plus or minus the starting fragmentation height
 bounds[-fragmentation_count:] = np.array((initial_guess[-fragmentation_count:] - height_bounds, 
                                                          initial_guess[-fragmentation_count:] + height_bounds)).T
 bounds = tuple([tuple(bound) for bound in bounds])
@@ -616,7 +616,7 @@ n_params = len(initial_guess)
 
 # Run NS:
 import dynesty
-filename = './dynesty_saves/novo_mesto_restricted_sorted.save'  # CHANGE THIS
+filename = './dynesty_saves/novo_mesto_unrestricted_sorted.save'  # CHANGE THIS
 
 n_threads = multiprocessing.cpu_count() - 1
 # n_threads = 32
