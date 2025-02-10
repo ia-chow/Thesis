@@ -37,3 +37,5 @@
 **/CometEls.txt
 # ignore the emccd_d_vals folder with large saved numpy arrays
 **/emccd_d_vals
+# ignore the chelyabinsk dynesty save file because it's really big for some reason
+**/dynesty_saves/*2013_02_15*
