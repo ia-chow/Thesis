@@ -1,15 +1,7 @@
 import numpy as np
-import pandas as pd
 import sys
-import json
 import os
-import copy
-import matplotlib.pyplot as plt
-import scipy
 import multiprocessing
-import h5py
-import emcee
-from emcee.interruptible_pool import InterruptiblePool
 
 # Make WMPL directory visible
 sys.path.append('../../')
