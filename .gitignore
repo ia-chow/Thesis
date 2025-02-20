@@ -39,3 +39,5 @@
 **/emccd_d_vals
 # ignore the chelyabinsk dynesty save file because it's really big for some reason
 **/dynesty_saves/*2013_02_15*
+# ignore velocity curves for fitting (e.g. novo mesto) as they are large
+*interpolated_*_vels*

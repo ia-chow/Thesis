@@ -13,7 +13,7 @@ import source.WesternMeteorPyLib.wmpl.Utils.Pickling as pickling
 
 # Bolometric power of a zero magnitude meteor (W):
 P0m = 3030  # bolometric power of zero magnitude meteor in watts (3030 for silicon bandpass CNEOS at 6000 K blackbody)
-logl_scale_factor = 1.e21  # factor to scale the log likelihood by
+logl_scale_factor = 1.  # factor to scale the log likelihood by, DON'T CHANGE THIS
 
 # Modified version to run with optimization routine (now including single-body fragments):
 null=None
