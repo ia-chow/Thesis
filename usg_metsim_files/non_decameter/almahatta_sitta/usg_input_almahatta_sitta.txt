@@ -25,7 +25,7 @@ ht = 38.9
 # ----------------
 
 # Azimuth (+E of due N, deg)
-azimuth = 218.3
+azimuth = 281.3
 
 # Entry angle (from horizon, deg)
 entry_angle = 71.8

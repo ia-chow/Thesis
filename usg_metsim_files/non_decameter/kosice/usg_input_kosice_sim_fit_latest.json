@@ -1,6 +1,6 @@
 {
     "dt": 0.01,
-    "total_time": 12.689999999999774,
+    "total_time": 12.819999999999771,
     "n_active": 0,
     "m_kill": 1e-14,
     "v_kill": 3000.0,
@@ -18,7 +18,7 @@
         -2701624.981184489
     ],
     "r_earth": 6366114.643314468,
-    "total_fragments": 518,
+    "total_fragments": 1619,
     "wake_psf": 3.0,
     "wake_extension": 200.0,
     "rho": 1500.0,
@@ -66,7 +66,7 @@
             "gamma": null,
             "erosion_coeff": 1.75e-06,
             "grain_mass_min": 0.002,
-            "grain_mass_max": 0.01,
+            "grain_mass_max": 1.0,
             "mass_index": 2.5,
             "time": 10.389999999999823,
             "dyn_pressure": 845603.0437892653,
