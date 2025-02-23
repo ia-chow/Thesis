@@ -318,8 +318,8 @@ event_path = '../usg_metsim_files/2010-07-06/usg_input_jul_2010' # event path, C
 
 # CHANGE THESE
 FIXED_FRAG_INDICES = []
-FREE_FRAG_INDICES = [0, 1, 2, 3]# , 4, 5, 6]#, 7, 8]  # fragments with free parameters
-ER_FRAG_INDICES = [0, 1, 2, 3]# , 4, 5, 6]  # free fragments that have erosion coefficients (i.e. all free fragments excluding dust)
+FREE_FRAG_INDICES = [0, 1, 2, 3]# , 4]# , 5, 6]#, 7, 8]  # fragments with free parameters
+ER_FRAG_INDICES = [0, 1, 2, 3]# , 4]# , 5, 6]  # free fragments that have erosion coefficients (i.e. all free fragments excluding dust)
 
 metsim_obj = MetSimObj(traj_path=event_path + '.txt', 
                        const_json_file=event_path + '_sim_fit_latest.json',
@@ -356,7 +356,7 @@ def unflatten_list(lst, num_global_params=1, num_frag_params=5, er_frag_indices=
     sizes = list(np.repeat('k', num_frag_params - 1))
     for i in range(0, num_global_params):
         sizes.insert(0, 1)
-    sizes.insert(3, int(len(er_frag_indices)))  # CHANGE THESE INDICES IF STRUCTURE CHANGES
+    sizes.insert(2, int(len(er_frag_indices)))  # CHANGE THESE INDICES IF STRUCTURE CHANGES
     k = (len(lst) - sum(s for s in sizes if s != 'k')) // sizes.count('k') if 'k' in sizes else 0
     result, index = [], 0
     for size in sizes:
@@ -471,11 +471,11 @@ initial_guess_mod[0] = initial_guess[0]
 # CHANGE THIS
 initial_guess_mod = initial_guess + [0., # log sigma
                                      0., # total mass
-                                     0., 0., 0., 0.,#  0., 0., 0.,   # frag mass pcts
-                                     0., 0., 0., 0.,#  0., 0., 1.e-8,  # erosion coeffs
-                                     0., 0., 0., 0.,#  0., 0., 0.,  # grain mins
-                                     0., 0., 0., 0.,#  0., 0., 0.,   # grain maxs
-                                     0., 1000., 0., 0.,#  0., 0., 0., # heights
+                                     0., 0., 0., 0.,#  0.,#  0., 0.,   # frag mass pcts
+                                     0., 0., 0., 0.,#  0.,#  0., 1.e-8,  # erosion coeffs
+                                     0., 0., 0., 0.,#  0.,#  0., 0.,  # grain mins
+                                     0., 0., 0., 0.,#  0.,#  0., 0.,   # grain maxs
+                                     0., 1000., 0., 0.,#  0.,#  0., 0., # heights
                                     ] 
 
 print('modified:' + str(lamb_func(initial_guess_mod)))
@@ -532,7 +532,7 @@ bounds = hard_bounds
 
 # manually change certain bounds
 # CHANGE THIS
-height_bounds = 1000.  # permissible values plus or minus the starting fragmentation height
+height_bounds = 2700.  # permissible values plus or minus the starting fragmentation height
 bounds = np.array(bounds)
 # log sigma
 bounds[0] = (ln_sigma_min - 20., ln_sigma_max + 20.)

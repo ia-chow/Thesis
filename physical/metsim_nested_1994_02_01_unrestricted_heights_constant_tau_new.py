@@ -642,12 +642,12 @@ timeout = 20
 with dynesty.pool.Pool(n_threads, log_likelihood, prior,
                        logl_args=(metsim_obj, timeout), 
                        ptform_args=(bounds, fragmentation_count, len(ER_FRAG_INDICES))) as pool:
-    # # NEW RUN
-    # dsampler = dynesty.DynamicNestedSampler(pool.loglike, pool.prior_transform, n_params, pool = pool)
-    # dsampler.run_nested(print_progress=True, checkpoint_file=filename)
+    # NEW RUN
+    dsampler = dynesty.DynamicNestedSampler(pool.loglike, pool.prior_transform, n_params, pool = pool)
+    dsampler.run_nested(print_progress=True, checkpoint_file=filename)
 
-    # RESUME:
-    dsampler = dynesty.DynamicNestedSampler.restore(filename, pool = pool)
-    dsampler.run_nested(resume=True, print_progress=True, checkpoint_file=filename)
+    # # RESUME:
+    # dsampler = dynesty.DynamicNestedSampler.restore(filename, pool = pool)
+    # dsampler.run_nested(resume=True, print_progress=True, checkpoint_file=filename)
 
 print('done')
