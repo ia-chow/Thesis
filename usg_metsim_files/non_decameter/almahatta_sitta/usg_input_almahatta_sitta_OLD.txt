@@ -28,10 +28,10 @@ ht = 38.9
 azimuth = 281.3
 
 # Entry angle (from horizon, deg)
-entry_angle = 18.22
+entry_angle = 71.8
 
 # Velocity (km/s)
-v = 13.28
+v = 13.3
 
 
 # USG/CNEOS light curve:

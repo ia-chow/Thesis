@@ -1,0 +1,49 @@
+# MetSim fragmentation file.
+#
+# Types of entries:
+#   - *INIT - Initial parameters taken from the GUI. Ready only, cannot be set in this file.
+#   - M    - Main fragment - parameter change.
+#           - REQUIRED: Height.
+#           - Possible: Ablation coeff, Erosion coeff, Grain masses, Mass index.
+#   - A    - All fragments - parameter change.
+#           - REQUIRED: Height.
+#           - Possible: Ablation coeff, Gamma.
+#   - F    - New single-body fragment.
+#           - REQUIRED: Height, Number, Mass (%).
+#           - Possible: Ablation coeff.
+#   - EF   - New eroding fragment. A mass index of 2.0 will be assumed if not given.
+#           - REQUIRED: Height, Number, Mass (%), Erosion coeff, Grain masses.
+#           - Possible: Ablation coeff, Mass index.
+#   - D    - Dust release. Only the grain mass range needs to be specified. A mass index of 2.0 will be assumed if not given.
+#           - REQUIRED: Height, Mass (%), Grain MIN mass, Grain MAX mass.
+#           - Possible: Mass index.
+# 
+# If the character "U" is added before the height (e.g. U92.500), the fragmentation will only be applied when the object is going up.
+# This feature is useful for modelling Earth grazers.
+#
+#                             INPUTS (leave unchanged fields empty)                                      #        OUTPUTS  (do not fill in!)                                  #
+# ------------------------------------------------------------------------------------------------------ # ------------------------------------------------------------------ #
+# Type, Height (km), Number, Mass (%), Ablation coeff, Gamma, Erosion coeff, Grain MIN, Grain MAX, Mass  #  Time (s),  Dyn pres, Velocity, Parent mass, Mass (kg), Final mass #
+#     ,            ,       ,         , (s^2 km^-2)   ,      , (s^2 km^-2)  , mass (kg), mass (kg), index #          ,  (kPa)   , (km/s)  , (kg)       ,          , (kg)       #
+#-----,------------,-------,---------,---------------,------,--------------,----------,----------,-------#----------,----------,---------,------------,----------,----------- #
+# INIT,     180.000,      1,  100.000,         0.0050,  1.00,        0.0000,          ,          ,       #          ,          ,         ,            ,          ,            #
+    EF,      48.500,      1,    4.000,               ,      ,        0.7500,  1.00e-07,  5.00e-05,  2.50 #          ,          ,         ,            ,          ,            #
+     D,      47.400,       ,    0.300,               ,      ,              ,  1.00e-06,  5.00e-04,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      47.000,      1,    4.000,               ,      ,        1.3300,  1.00e-06,  5.00e-04,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      46.000,      1,    5.000,               ,      ,        1.0000,  1.00e-09,  5.00e-07,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      45.200,      1,    4.000,               ,      ,        2.8500,  1.00e-08,  5.00e-04,  2.00 #          ,          ,         ,            ,          ,            #
+    EF,      44.900,      1,    4.000,               ,      ,        2.8300,  1.00e-07,  5.00e-06,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      44.300,      3,    5.000,               ,      ,        2.3300,  1.00e-07,  5.00e-05,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      38.700,      1,   10.000,               ,      ,        1.3300,  1.00e-07,  5.00e-04,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      38.300,      1,   25.000,               ,      ,        1.3300,  1.00e-07,  5.00e-03,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      38.100,      1,   10.000,               ,      ,        1.3300,  1.00e-05,  5.00e-04,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      37.800,     10,   20.000,               ,      ,        0.6300,  1.00e-05,  5.00e-02,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      37.500,      5,   50.000,               ,      ,        0.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      37.300,      1,   10.000,               ,      ,        0.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      37.000,      1,   20.000,               ,      ,        0.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      36.900,      1,   20.000,               ,      ,        1.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      36.600,      1,   30.000,               ,      ,        1.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      36.300,      1,   30.000,               ,      ,        1.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      36.000,      1,   40.000,               ,      ,        1.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      35.700,      1,   50.000,               ,      ,        1.5300,  1.00e-04,  5.00e-01,  2.50 #          ,          ,         ,            ,          ,            #
+    EF,      33.400,      1,   98.000,               ,      ,        1.3300,  1.00e-05,  5.00e-02,  2.50 #          ,          ,         ,            ,          ,            #
