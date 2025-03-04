@@ -1,6 +1,7 @@
 import numpy as np
 import rebound as rb
-
+import os
+from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 # initialize arrays to record cartesian positions and velocities at impact
 earth_cart_positions = []
@@ -98,7 +99,7 @@ def my_merge(sim_pointer, collided_particles_index):
 # NEED TO FIND SOME NODE TO RUN THESE ON:
 
 
-# seed = #
+seed = -15166465 #
 
 
 def my_merge(sim_pointer, collided_particles_index):
@@ -185,7 +186,12 @@ def my_merge(sim_pointer, collided_particles_index):
 
 # initialize simulation from archive
 sim = rb.Simulation(f'./rebound_archives/rebound_archive_500_{seed}.bin')  # start from the most recent snapshot
-# sim.start_server(port=1236)  # start server
+# sim.viz[1].color = (1, 0, 0, 1)  # Red (RGBA)
+
+# Start REBOUND's visualization server
+sim.start_server(port=1234)  # Start non-blocking server
+
+# sim.start_server(port=1234)  # start server
 
 # set maximum distance for particle to be removed
 sim.configure_box(20.)  # 10 AU on each side
