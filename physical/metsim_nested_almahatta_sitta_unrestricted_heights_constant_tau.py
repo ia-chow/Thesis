@@ -315,12 +315,12 @@ class MetSimObj():
             self.simulation_results = gui.SimulationResults(self.const, frag_main, results_list, wake_results)
 
 # EVENT
-event_path = '../usg_metsim_files/non_decameter/flensburg/usg_input_flensburg' # event path, CHANGE THIS
+event_path = '../usg_metsim_files/non_decameter/almahatta_sitta/usg_input_almahatta_sitta' # event path, CHANGE THIS
 
 # CHANGE THESE
 FIXED_FRAG_INDICES = []
-FREE_FRAG_INDICES = [0, 1]#, 2]# , 3, 4]#, 5, 6]#, 6, 7, 8]  # fragments with free parameters
-ER_FRAG_INDICES = [0, 1]#, 2]# , 3, 4]# , 5, 6]#, 2, 3, 4]  # free fragments that have erosion coefficients (i.e. all free fragments excluding dust)
+FREE_FRAG_INDICES = [0, 1, 2, 3, 4]#, 5, 6]#, 6, 7, 8]  # fragments with free parameters
+ER_FRAG_INDICES = [0, 1, 2, 3, 4]# , 5, 6]#, 2, 3, 4]  # free fragments that have erosion coefficients (i.e. all free fragments excluding dust)
 
 metsim_obj = MetSimObj(traj_path=event_path + '.txt', 
                        const_json_file=event_path + '_sim_fit_latest.json',
@@ -446,7 +446,7 @@ def get_lc_cost_function(flattened_free_params, metsim_obj, pso=False):
 
 # print initial guess log likelihood
 # CHANGE THIS
-initial_guess = np.load('initial_guesses/initial_guess_flensburg_TEST_heights.npy') # initial pre-saved guess
+initial_guess = np.load('initial_guesses/initial_guess_almahatta_sitta_TEST_heights.npy') # initial pre-saved guess
 lamb_func = lambda free_params_flattened: get_lc_cost_function(free_params_flattened, metsim_obj=metsim_obj, pso=False)
 print('initial:' + str(lamb_func(initial_guess)))
 
@@ -458,11 +458,11 @@ initial_guess_mod[0] = initial_guess[0]
 
 # CHANGE THIS
 initial_guess_mod = initial_guess + [0., # total mass
-                                     0., 0.,# 0.,#  0., 0.,# 0., 0.,   # frag mass pcts
-                                     0., 0.,# 0.,#  0., 0.,# 0., 1.e-8,  # erosion coeffs
-                                     0., 0.,# 0.,#  0., 0.,# 0., 0.,  # grain mins
-                                     0., 0.,# 0.,#  0., 0.,# 0., 0.,   # grain maxs
-                                     0., 1000.,# 0.,#  0., 0.,# 0., 0., # heights
+                                     0., 0., 0., 0., 0.,# 0., 0.,   # frag mass pcts
+                                     0., 0., 0., 0., 0.,# 0., 1.e-8,  # erosion coeffs
+                                     0., 0., 0., 0., 0.,# 0., 0.,  # grain mins
+                                     0., 0., 0., 0., 0.,# 0., 0.,   # grain maxs
+                                     0., 1000., 0., 0., 0.,# 0., 0., # heights
                                     ] 
 
 print('modified:' + str(lamb_func(initial_guess_mod)))
@@ -497,7 +497,7 @@ frag_heights = tuple((20., 80.) for _ in range(fragmentation_count))
 #### CHANGE THE RESULTS/BOUNDS DEPENDING ON WHAT COMBINATION IS BEING USED!
 result = frag_mass_percents + frag_erosion_coeffs + frag_grain_mins + frag_grain_maxs + frag_heights
 # Print the result to check the output
-hard_bounds = np.array(((1.e3, 1.e6), ) + result)
+hard_bounds = np.array(((1.e3, 1.e7), ) + result)
 
 # CHANGE THIS DEPENDING ON EVENT
 
@@ -519,9 +519,9 @@ bounds = hard_bounds
 
 # manually change certain bounds
 # CHANGE THIS
-height_bounds = 1700.  # permissible values plus or minus the starting fragmentation height
+height_bounds = 1250.  # permissible values plus or minus the starting fragmentation height
 bounds = np.array(bounds)
-bounds[0] = (1.e3, 1.e6)
+bounds[0] = (1.e3, 1.e7)
 # masses
 bounds[1:fragmentation_count + 1] = np.repeat([(0., 100.)], fragmentation_count, axis=0)
 # heights
@@ -613,22 +613,22 @@ n_params = len(initial_guess)
 
 # Run NS:
 import dynesty
-filename = './dynesty_saves/flensburg_unrestricted_heights_constant_tau.save'  # CHANGE THIS
+filename = './dynesty_saves/almahatta_sitta_unrestricted_heights_constant_tau.save'  # CHANGE THIS
 
 n_threads = multiprocessing.cpu_count() - 1
-timeout = 20
+timeout = 15
 # n_threads = 32
 # n_threads = 48
 
 with dynesty.pool.Pool(n_threads, log_likelihood, prior,
                        logl_args=(metsim_obj, timeout), 
                        ptform_args=(bounds, fragmentation_count, len(ER_FRAG_INDICES))) as pool:
-    # # NEW RUN
-    # dsampler = dynesty.DynamicNestedSampler(pool.loglike, pool.prior_transform, n_params, nlive=1000, pool = pool)
-    # dsampler.run_nested(print_progress=True, checkpoint_file=filename)
+    # NEW RUN
+    dsampler = dynesty.DynamicNestedSampler(pool.loglike, pool.prior_transform, n_params, nlive=1000, pool = pool)
+    dsampler.run_nested(print_progress=True, checkpoint_file=filename)
 
-    # RESUME:
-    dsampler = dynesty.DynamicNestedSampler.restore(filename, pool = pool)
-    dsampler.run_nested(resume=True, print_progress=True, checkpoint_file=filename)
+    # # RESUME:
+    # dsampler = dynesty.DynamicNestedSampler.restore(filename, pool = pool)
+    # dsampler.run_nested(resume=True, print_progress=True, checkpoint_file=filename)
 
 print('done')

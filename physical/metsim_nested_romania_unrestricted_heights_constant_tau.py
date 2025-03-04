@@ -497,7 +497,7 @@ frag_heights = tuple((20., 80.) for _ in range(fragmentation_count))
 #### CHANGE THE RESULTS/BOUNDS DEPENDING ON WHAT COMBINATION IS BEING USED!
 result = frag_mass_percents + frag_erosion_coeffs + frag_grain_mins + frag_grain_maxs + frag_heights
 # Print the result to check the output
-hard_bounds = np.array(((1.e3, 1.e8), ) + result)
+hard_bounds = np.array(((1.e3, 1.e6), ) + result)
 
 # CHANGE THIS DEPENDING ON EVENT
 
@@ -521,7 +521,7 @@ bounds = hard_bounds
 # CHANGE THIS
 height_bounds = 1000.  # permissible values plus or minus the starting fragmentation height
 bounds = np.array(bounds)
-bounds[0] = (1.e3, 1.e8)
+bounds[0] = (1.e3, 1.e6)
 # masses
 bounds[1:fragmentation_count + 1] = np.repeat([(0., 100.)], fragmentation_count, axis=0)
 # heights
